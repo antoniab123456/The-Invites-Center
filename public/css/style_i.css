@@ -1,0 +1,222 @@
+*{
+  margin:0;
+}
+body {
+  font-family: sans-serif;
+  line-height: 1.6em;
+  background-color: #F0F0F0;
+  text-align: center;
+  color: #484848;
+}
+
+#invite{
+    background: url(../images/flowers.jpg) no-repeat;
+    padding-bottom: 260px;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-top: 110px;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#text p{
+   font-family: sans-serif;
+   font-size: 35px;
+   margin-bottom: 70px;
+}
+
+#text {
+   position: relative;
+   top: 220px;
+}
+
+.btn {
+  padding: 20px 35px;
+  border: none;
+  background-color: #FF69B4;
+  font-size: 25px;
+  border-radius: 10px;
+  color: #484848;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: #e875af;
+}
+
+
+footer{
+  margin-top: 100px;
+  font-size: 20px;
+  color: #808080;
+}
+
+
+@media(max-height: 900px) {
+  #invite{
+    margin-top: 100px;
+  }
+  footer{
+    margin-top: 190px;
+  }
+}
+@media(max-height: 800px) {
+  #invite{
+    margin-top: 80px;
+  }
+  footer{
+    margin-top: 140px;
+  }
+}
+
+
+@media(max-width: 1390px) {
+#invite{
+  margin-left: 300px;
+  margin-right: 300px;
+  }
+  #text p{
+    font-size: 38px;
+   }
+  }
+
+@media(max-width: 1350px) {
+#invite{
+  padding-bottom: 240px;
+  margin-left: 280px;
+  margin-right: 280px;
+ }
+ #text{
+   position: relative;
+   top: 190px;
+ }
+ #text p{
+   font-size: 36px;
+  }
+
+
+@media(max-width: 1250px) {
+ #invite{
+  padding-bottom: 220px;
+  margin-left: 240px;
+  margin-right: 240px;
+  font-size: 23px;
+
+ }
+ #text{
+   position: relative;
+   top: 170px;
+}
+.btn{
+  padding: 18px 33px;
+  font-size: 28px;
+}
+ footer{
+  font-size: 18px;
+  }
+}
+
+@media(max-width: 1200px) {
+   #invite{
+    width: 700px;
+    margin-left: 200px;
+  }
+  footer{
+    position:fixed;
+    margin-left: 450px;
+  }
+}
+
+@media(max-width: 1130px) {
+  #invite{
+    margin-left: 150px;
+    }
+    footer{
+      margin-left: 370px;
+    }
+}
+
+
+@media(max-width: 960px) {
+  #invite{
+    margin-left: 100px;
+    }
+    footer{
+      margin-left: 320px;
+    }
+}
+
+@media(max-width: 768px) {
+  #invite{
+    margin-left: 50px;
+    width: 600px;
+    }
+    footer{
+      margin-left: 190px;
+    }
+}
+
+@media(max-width: 650px) {
+  #invite{
+    margin-left: 5px;
+    width: 600px;
+    }
+    footer{
+      margin-left: 140px;
+    }
+}
+@media(max-width: 620px) {
+  #invite{
+    margin-left: 5px;
+    width: 550px;
+    }
+    footer{
+      margin-left: 140px;
+    }
+}
+@media(max-width: 550px) {
+  #invite{
+    margin-left: 5px;
+    width: 500px;
+    }
+  #text p{
+    font-size: 30px;
+  }
+    footer{
+      margin-left: 140px;
+    }
+}
+
+
+@media(max-width: 450px) {
+  #invite{
+    margin-left: 10px;
+    width: 95%;
+    margin-top: 80px;
+    }
+  #text {
+    top: 180px;
+  }
+
+#span{
+  display: block;
+  font-size: 30px;
+  word-spacing: 3px;
+  }
+  #text p{
+    font-size: 30px;
+    line-height: 1.3em;
+     margin-bottom: 40px;
+}
+.btn {
+  padding: 15px 25px;
+  font-size: 25px;
+}
+    footer{
+      margin-left: 100px;
+      margin-top: 170px;
+    }
+}
