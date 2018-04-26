@@ -3,6 +3,14 @@
   margin: 0;
 }
 
+a::selection{
+  background-color: #f5d5e6;
+}
+
+p::selection{
+  background-color: #f5d5e6;
+}
+
 body {
   background-color: #fff;
   font-family:sans-serif;
@@ -163,6 +171,7 @@ font-size: 16px;
   border: none;
   color: #484848;
   margin-top: 15px;
+  outline: none;
 }
 
 .reg_form button:hover{
