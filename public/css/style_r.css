@@ -147,7 +147,7 @@ font-size: 16px;
 #surname {
  float: right;
  position: relative;
- left: -10px;
+ left: -7px;
 }
 
 .reg_form input:not([type="text"]){
