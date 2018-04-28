@@ -4,7 +4,8 @@
   "description": "AUth system",
   "main": "app.js",
   "dependencies": {
-    "npm": "^5.8.0"
+    "npm": "^5.8.0",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
     "bcryptjs": "*",
