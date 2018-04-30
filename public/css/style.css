@@ -1,0 +1,634 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+a::selection{
+  background-color: #f5d5e6;
+}
+
+p::selection{
+  background-color: #f5d5e6;
+}
+
+body {
+  background-color: #fff;
+  font-family:sans-serif;
+  color: #484848;
+  line-height: 1.6;
+
+}
+
+.header {
+  overflow: hidden;
+  padding: 25px 0 50px 70px;
+}
+
+.header nav ul{
+  padding: 0;
+}
+
+.header nav{
+  position: absolute;
+  top: 50px;
+  font-size: 18px;
+  left: 890px;
+  float: right;
+}
+
+.header nav li {
+  float: left;
+  display: inline;
+  padding: 0 50px 0 50px;
+}
+
+header nav li a{
+  text-decoration: none;
+  color: inherit;
+}
+
+#btn2{
+  background-color: #FF69B4;
+  color: #484848;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 18px;
+  margin-left: 50px;
+  position: absolute;
+  top: -10px;
+  transition: background 0.5s ease-in-out;
+}
+
+#btn2:hover{
+  background-color: #f7cfe3;
+}
+
+.container{
+  margin-top: 60px;
+  min-width: 90%;
+  margin-left: 50px;
+  background-image: url('../images/form.jpg');
+}
+
+#box1{
+  width:50%;
+  float: left;
+  padding: 40px 60px 300px 20px;
+  position: absolute;
+  color: 	#181818;
+}
+
+.pattern{
+  opacity: 0.12;
+  position: absolute;
+}
+
+.pattern img{
+  width: 90%;
+  border-radius: 10px;
+  height: 780px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#header{
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+#text {
+  font-size: 19px;
+  line-height: 1.7em;
+}
+
+#box2 {
+  position:absolute;
+  top: 140px;
+  left: 870px;
+  width: 33%;
+  min-height: 550px;
+  float: right;
+  margin-right: 60px;
+  border-radius: 10px;
+  background-size: cover;
+  border: 0.5px #B0B0B0 solid;
+  background-color: #F8F8F8;
+}
+
+#account{
+  font-size: 30px;
+  margin-left: 60px;
+  margin-bottom: 30px;
+}
+
+.reg_form {
+ width: 80%;
+ padding: 40px 0 30px 55px;
+}
+
+.reg_form input::placeholder {
+font-size: 16px;
+}
+
+.reg_form input[type="text"]{
+  padding: 15px 0px 15px 10px;
+  width: 43%;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  border: 1px #a3a3a3 solid;
+  font-size: 18px;
+  color: inherit;
+  margin-bottom: 15px;
+}
+
+#name1 {
+  float: left;
+}
+
+#surname {
+ float: right;
+ position: relative;
+ left: -7px;
+}
+
+.reg_form input:not([type="text"]){
+   width: 90%;
+   padding: 15px;
+   border: none;
+   border-radius: 5px;
+   outline: none;
+   border: 1px #a3a3a3 solid;
+   font-size: 18px;
+   color: inherit;
+   margin-bottom: 15px;
+}
+
+.reg_form button{
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 15px 35px;
+  width: 98%;
+  background-color: #FF69B4;
+  border: none;
+  color: #484848;
+  margin-top: 15px;
+  outline: none;
+  transition: background 0.5s ease-in-out;
+}
+
+.reg_form button:hover{
+  background-color: #f598c6;
+}
+
+
+#existing{
+  font-size: 17px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#existing a{
+  color:#4682B4;
+}
+
+.footer{
+  position: absolute;
+  top: 750px;
+  left: 550px;
+  font-size: 19px;
+  color: #606060;
+}
+
+.around{
+  /*display:none*/
+display: none;
+position:fixed;
+z-index: 1;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+overflow: auto;
+background: url('/images/blur1.png') no-repeat;
+background-size: 100% 100%;
+}
+
+.inside{
+ background-color: #e8e7e7;
+ border-radius: 10px;
+ margin: 13% auto;
+ width: 30%;
+ box-shadow: 0 5px 8px 0 rgba(0,0,0,0.3),0 7px 20px 0 rgba(0,0,0,0.2);
+ animation-name: modalopen;
+ animation-duration: 1s;
+ overflow: hidden;
+ padding: 4% 68px;
+ height: 250px;
+}
+
+.header1 p{
+  margin-bottom: 20px;
+  color: #484848;
+  font-size: 30px;
+  text-align: center;
+  word-spacing: 0.9px;
+}
+
+.inside input:not([type=submit])::placeholder{
+font-size: 17px;
+}
+
+.inside input:not([type=submit]){
+  width: 100%;
+  padding-top: 13px;
+  padding-left: 0px;
+  padding-bottom: 13px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px #a3a3a3 solid;
+  outline: none;
+  font-size: 18px;
+  color: #484848;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.input1,
+.input2 {
+  display: block;
+}
+
+.btn3 {
+  margin-top: 17px;
+  margin-left: 40%;
+  padding: 12px 30px;
+  font-size: 21px;
+  background-color: #FF69B4;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: #3c3b3b;
+  transition: background 0.5s ease-in-out;
+  }
+
+  .btn3:hover {
+    background-color: #f1bbd6;
+  }
+
+  .closeBtn{
+    position: relative;
+    top: -50px;
+    left: 20px;
+    float: right;
+    font-size: 30px;
+   color: #a3a3a3;
+
+}
+ .closeBtn:hover{
+color: #484848;
+}
+
+.username{
+background: url('/images/user_bw.png') no-repeat 5px 5px;
+padding-left:30px;
+transition: background 0.5s ease-in-out;
+}
+
+.username:focus{
+  background: url('/images/user.png') no-repeat 5px 5px;
+}
+
+
+.password{
+background: url('/images/lock_bw.png') no-repeat 5px 5px;
+padding-left: 30px;
+transition: background 0.5s ease-in-out;
+}
+
+.password:focus{
+  background: url('/images/lock.png') no-repeat 5px 5px;
+}
+
+
+@keyframes modalopen{
+  from{ opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes modalclose{
+  from{opacity: 1}
+  to{opacity: 0}
+}
+
+@media(max-height: 800px) {
+  .header nav{
+    top: 30px;
+  }
+
+  .around{
+  background: url('/images/blur.png') no-repeat;
+  background-size: 100% 100%;
+  }
+  .pattern img{
+    height: 710px;
+  }
+  #box1{
+    padding-top: 10px;
+  }
+  #box2{
+    top: 100px;
+    min-height: 530px;
+   }
+   .footer{
+    top: 670px;
+   }
+  }
+
+@media(max-width: 1400px) {
+  .reg_form {
+   width: 80%;
+   padding: 35px 0 30px 50px;
+  }
+}
+
+@media(max-width: 1350px) {
+  .header nav{
+    left: 880px;
+  }
+}
+
+@media(max-width: 1310px){
+  .header nav{
+    left:820px;
+  }
+  .pattern img{
+    height: 710px;
+    width: 87%;
+  }
+
+  #box2 {
+    left: 800px;
+    width: 35%;
+    min-height: 550px;
+  }
+  #account{
+    font-size: 28px;
+    margin-left: 55px;
+    margin-bottom: 30px;
+  }
+.footer{
+  font-size: 18px;
+ }
+ #header{
+   font-size: 28px;
+ }
+ #text {
+   font-size: 18.5px;
+   line-height: 1.7em;
+ }
+
+}
+
+@media(max-width: 1270px){
+  body{
+    width: 100%;
+  }
+  .header nav{
+    left:790px;
+  }
+
+  #box2 {
+    left: 780px;
+    width: 35%;
+    min-height: 550px;
+  }
+  #account{
+    font-size: 28px;
+    margin-left: 53px;
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 1250px){
+  .header nav{
+    left:770px;
+  }
+
+  #box2 {
+    left: 780px;
+    width: 35%;
+    min-height: 550px;
+  }
+  #account{
+    font-size: 28px;
+    margin-left: 53px;
+    margin-bottom: 30px;
+  }
+.footer{
+  font-size: 17px;
+ }
+ #header{
+   font-size: 27px;
+ }
+ #text {
+   font-size: 18px;
+   line-height: 1.7em;
+ }
+ #box2 {
+   min-height: 530px;
+ }
+}
+
+@media(max-width: 1220px){
+  .header nav{
+    left:740px;
+  }
+
+  #box2 {
+    left: 750px;
+    width: 35%;
+    min-height: 530px;
+  }
+  #account{
+    font-size: 27px;
+    margin-left: 52px;
+    margin-bottom: 30px;
+  }
+.footer{
+  font-size: 16px;
+ }
+ #header{
+   font-size: 26px;
+ }
+ #text {
+   font-size: 17px;
+   line-height: 1.7em;
+ }
+ .reg_form {
+  padding: 40px 0 30px 50px;
+ }
+}
+@media(max-width: 1190px){
+  .header nav{
+    left:730px;
+  }
+
+  #box2 {
+    left: 750px;
+    width: 35%;
+    min-height: 520px;
+  }
+  #account{
+    font-size: 27px;
+    margin-left: 52px;
+    margin-bottom: 30px;
+  }
+.footer{
+  font-size: 16px;
+  left: 500px;
+ }
+ #header{
+   font-size: 26px;
+ }
+ #text {
+   font-size: 17px;
+   line-height: 1.7em;
+ }
+ .reg_form {
+  padding: 40px 0 30px 45px;
+ }
+ .header nav{
+   font-size: 17.5px;
+ }
+}
+
+@media(max-width: 1175px){
+  .header nav{
+    left:700px;
+  }
+
+  #box2 {
+    left: 730px;
+    width: 35%;
+    min-height: 500px;
+  }
+  #account{
+    font-size: 27px;
+    margin-left: 52px;
+    margin-bottom: 30px;
+  }
+.footer{
+  font-size: 16px;
+  left: 490px;
+ }
+ .reg_form {
+  padding: 40px 0 30px 45px;
+ }
+ #account{
+   font-size: 26px;
+   margin-left: 52px;
+   margin-bottom: 30px;
+ }
+ .reg_form input[type="text"]{
+   padding: 12px 0px 12px 10px;
+   width: 43%;
+   margin-bottom: 15px;
+ }
+
+ .reg_form input:not([type="text"]){
+    width: 90%;
+    padding: 15px;
+    font-size: 18px;
+    color: inherit;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  #surname {
+   float: right;
+   position: relative;
+   left: -2px;
+  }
+
+ .header nav{
+   font-size: 17.5px;
+ }
+}
+
+@media(max-width: 1150px){
+  .header nav{
+    left:670px;
+  }
+
+  .reg_form{
+    padding: 30px 0 30px 43px;
+  }
+
+  #box2 {
+    left: 710px;
+    width: 35%;
+    min-height: 480px;
+  }
+}
+
+@media(max-width: 1100px){
+  #box2 {
+    left: 700px;
+    width: 35%;
+    min-height: 480px;
+  }
+  .header nav{
+    left:670px;
+  }
+  .header nav li {
+    padding: 0 40px 0 40px;
+  }
+
+}
+
+@media(max-width: 1070px){
+  #box2 {
+    left: 660px;
+    width: 35%;
+    min-height: 460px;
+  }
+  .header nav{
+    left:650px;
+  }
+  #account{
+    font-size: 27px;
+    margin-left: 42px;
+    margin-bottom: 30px;
+  }
+  .header nav li {
+    padding: 0 35px 0 35px;
+  }
+  .reg_form{
+    padding: 30px 0 30px 40px;
+  }
+
+}
+
+@media(max-width: 1050px){
+  #box2 {
+    left: 660px;
+    width: 35%;
+    min-height: 460px;
+  }
+  .header nav{
+    left:650px;
+  }
+  #account{
+    font-size: 27px;
+    margin-left: 42px;
+    margin-bottom: 30px;
+  }
+  .reg_form{
+    padding: 30px 0 30px 40px;
+  }
+
+}
+
+@media(max-width: 1000px){
+
+}

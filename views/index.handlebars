@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/css/style_r.css">
-    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="/js/main.js"></script>
   </head>
   <body>
     <div class='pattern'>
@@ -16,7 +16,7 @@
         <ul>
           <li><a href="/users/home">Home</a></li>
           <li><a href="/">Register</a></li>
-          <li id="btn2"><a href="/users/login">Login</a></li>
+          <li id="btn2"><a action="/users/login" onclick="openModal()" >Login</a></li>
         </ul>
       </nav>
     </div>
@@ -50,13 +50,29 @@
       <button type="submit"> Register</button>
       </div>
       <div id="existing">
-        <p> Already have an account? <a href="/users/login">Login</a><p>
+        <p> Already have an account? <a action="/users/login" onclick="openModal()" >Login</a><p>
       </div>
       </form>
     </div>
     <div class="footer">
     <footer> &copy; 2018 The Invitations Center</footer>
   </div>
-  </div>
+  <div class="around" id="modal">
+      <div class=inside>
+      <div class="header1">
+        <span class="closeBtn" onclick="closeModal()">&times;</span>
+        <p>Sign-in</p>
+      </div>
+      <form method="post" action="users/login" class="signin_form">
+        <div class="input1">
+      <input class="username" type="text" name="username" placeholder="Username or E-mail">
+    </div>
+    <div class="input2">
+      <input class="password" type="password" name="password" placeholder="Password">
+      </div>
+      <button class="btn3" name="submit"> Login</button>
+    </form>
+    </div>
+    </div>
    </body>
 </html>
