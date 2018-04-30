@@ -3,16 +3,16 @@
   margin: 0;
 }
 
-a::selection{
-  background-color: #f5d5e6;
-}
-
-p::selection{
+a::selection,
+p::selection,
+footer::selection,
+button::selection,
+input::selection
+{
   background-color: #f5d5e6;
 }
 
 body {
-  background-color: #fff;
   font-family:sans-serif;
   color: #484848;
   line-height: 1.6;
@@ -67,7 +67,6 @@ header nav li a{
   margin-top: 60px;
   min-width: 90%;
   margin-left: 50px;
-  background-image: url('../images/form.jpg');
 }
 
 #box1{
@@ -117,7 +116,7 @@ header nav li a{
 
 #account{
   font-size: 30px;
-  margin-left: 60px;
+  margin-left: 75px;
   margin-bottom: 30px;
 }
 
@@ -236,11 +235,11 @@ background-size: 100% 100%;
   word-spacing: 0.9px;
 }
 
-.inside input:not([type=submit])::placeholder{
+.inside input::placeholder{
 font-size: 17px;
 }
 
-.inside input:not([type=submit]){
+.inside input{
   width: 100%;
   padding-top: 13px;
   padding-left: 0px;
@@ -253,11 +252,6 @@ font-size: 17px;
   color: #484848;
   text-align: center;
   background-color: #f5f5f5;
-}
-
-.input1,
-.input2 {
-  display: block;
 }
 
 .btn3 {
@@ -286,6 +280,7 @@ font-size: 17px;
    color: #a3a3a3;
 
 }
+
  .closeBtn:hover{
 color: #484848;
 }
@@ -315,11 +310,6 @@ transition: background 0.5s ease-in-out;
 @keyframes modalopen{
   from{ opacity: 0}
   to {opacity: 1}
-}
-
-@keyframes modalclose{
-  from{opacity: 1}
-  to{opacity: 0}
 }
 
 @media(max-height: 800px) {
