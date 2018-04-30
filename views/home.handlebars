@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
     <script src="/js/main.js"></script>
-    <title></title>
   </head>
   <body>
-
     <header>
       <div class="header">
     <div id="nav">
@@ -15,17 +13,31 @@
         <ul>
           <li><a href="/users/home">Home</a></li>
           <li><a href="/">Register</a></li>
-          <li id="btn2"><a href="/users/login">Login</a></li>
+          <li id="btn2" onclick="openModal()"><a  >Login</a></li>
         </ul>
       </nav>
     </div>
       <header>
       </div>
-<div class="container">
-     <p> Home view: nothing here yet</p>
-  </div>
   <div class="footer">
-  <footer> &copy; 2018 The Invitations Center</footer>
-</div>
+    <footer> &copy; 2018 The Invitations Center</footer>
+  </div>
+  <div class=".around" id="modal">
+      <div class='inside'>
+      <div class="header1">
+        <span class="closeBtn" onclick="closeModal()">&times;</span>
+        <p>Sign-in</p>
+      </div>
+      <form method="post" action="users/login" class="signin_form">
+        <div class="input1">
+      <input class="username" type="text" name="username" placeholder="Username or E-mail">
+    </div>
+    <div class="input2">
+      <input class="password" type="password" name="password" placeholder="Password">
+      </div>
+      <button class="btn3" name="submit"> Login</button>
+    </form>
+    </div>
+    </div>
    </body>
 </html>
