@@ -69,7 +69,8 @@ header nav li a{
 }
 
 #btn2:hover{
-  background-color: #f7cfe3;
+  background-color: #fb98ca;
+  cursor: pointer;
 }
 
 
@@ -142,6 +143,19 @@ font-size: 17px;
   display: block;
 }
 
+
+input:-webkit-autofill.password {
+    -webkit-animation-name: autofill_p;
+    -webkit-animation-fill-mode: both;
+}
+
+
+input:-webkit-autofill.username {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+
 .btn3 {
   margin-top: 17px;
   margin-left: 40%;
@@ -156,7 +170,7 @@ font-size: 17px;
   }
 
   .btn3:hover {
-    background-color: #f1bbd6;
+    background-color: #fb98ca;
   }
 
   .closeBtn{
@@ -191,6 +205,18 @@ transition: background 0.5s ease-in-out;
 
 .password:focus{
   background: url('/images/lock.png') no-repeat 5px 5px;
+}
+
+@-webkit-keyframes autofill {
+    to {
+      background: url('/images/user.png') no-repeat 5px 5px;
+    }
+}
+
+@-webkit-keyframes autofill_p {
+    to {
+      background: url('/images/lock.png') no-repeat 5px 5px;
+    }
 }
 
 
