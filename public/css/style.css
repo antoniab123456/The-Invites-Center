@@ -3,6 +3,13 @@
   margin: 0;
 }
 
+body {
+  font-family:sans-serif;
+  color: #484848;
+  line-height: 1.6;
+}
+
+
 button:hover,
 input[type=submit]{
   cursor: pointer;
@@ -17,12 +24,6 @@ input::selection
   background-color: #f5d5e6;
 }
 
-body {
-  font-family:sans-serif;
-  color: #484848;
-  line-height: 1.6;
-
-}
 
 .header {
   overflow: hidden;
@@ -151,7 +152,7 @@ font-size: 16px;
   float: left;
 }
 
-#surname {
+#username {
  float: right;
  position: relative;
  left: -7px;
@@ -212,7 +213,6 @@ font-size: 16px;
 
 
 .around{
-  /*display:none*/
 display: none;
 position:fixed;
 z-index: 1;
@@ -237,6 +237,89 @@ background-size: 100% 100%;
  padding: 4% 68px;
  height: 250px;
 }
+
+
+.msg{
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.msg_s{
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.around_m{
+position:fixed;
+z-index: 1;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+overflow: auto;
+background: url('/images/blur1.png') no-repeat;
+background-size: 100% 100%;
+font-size: 16px;
+color: #900000;
+font-family: Arial;
+
+}
+
+.around_s{
+  position:fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: url('/images/blur1.png') no-repeat;
+  background-size: 100% 100%;
+  font-size: 17px;
+  color: 	#228B22;
+  font-family: Verdana;
+}
+
+.message{
+border: 2px solid rgba(144,0,0, 0.3);
+background-color: #fff;
+border-radius: 10px;
+margin: 13% auto;
+width: 23%;
+box-shadow: 2px 9px 8px 0 rgba(255,0,0,0.3),2px 7px 20px 0 rgba(255,0,0,0.3);
+animation-name: modalopen;
+animation-duration: 1s;
+overflow: hidden;
+padding: 1% 1% 1% 1%;
+text-align: center;
+position: relative;
+animation: shake 0.2s;
+}
+
+
+
+.btn_green {
+  background-color: #32CD32;
+  color: #fff;
+  padding: 10px 25px;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.success_message{
+  border: 2px solid rgba(50, 205, 50, 0.3);
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 13% auto;
+  width: 25%;
+  box-shadow: 2px 9px 8px 0 rgba(50, 205, 50,0.3),2px 7px 20px 0 rgba(50, 205, 50,0.3);
+  animation-name: modalopen;
+  animation-duration: 1s;
+  overflow: hidden;
+  padding: 1% 1% 1% 1%;
+  text-align: center;
+}
+
 
 .header1 p{
   margin-bottom: 20px;
@@ -310,10 +393,6 @@ input:-webkit-autofill.username {
 color: #484848;
 }
 
-.input input{
-
-}
-
 .username{
   background: url('/images/user_bw.png') no-repeat 5px 5px;
 padding-left:30px;
@@ -336,10 +415,41 @@ transition: background 0.5s ease-in-out;
 }
 
 
+
+
 @keyframes modalopen{
   from{ opacity: 0}
   to {opacity: 1}
 }
+
+
+@keyframes shake {
+  0%{
+    left: 0px;
+    }
+20%{
+  left: -15px;
+}
+30%{
+  left: 0px;
+}
+40%{
+  left: 15px;
+}
+
+60%{
+  left: 0px;
+}
+80%{
+  left: -15px;
+}
+100%{
+  left: 0px;
+}
+
+}
+
+
 
 @-webkit-keyframes autofill {
     to {
