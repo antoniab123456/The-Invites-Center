@@ -66,7 +66,7 @@
         <span class="closeBtn" onclick="closeModal()">&times;</span>
         <p>Sign-in</p>
       </div>
-      <form method="post" action="users/login" class="signin_form">
+      <form method="post" action="/users/login" class="signin_form">
         <div class="input">
       <input class="username" type="text" name="username" placeholder="Username or E-mail">
     </div>
@@ -104,6 +104,7 @@
         {{#if error_msg}}
         <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
           <div class="message">
+          <img src="/images/error.png">
         <div class="msg"><p> {{error_msg}} </p></div>
       </div>
     </div>
@@ -112,6 +113,7 @@
         {{#if error}}
         <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
           <div class="message">
+       <img src="/images/error.png">
         <div class="msg"><p> {{error}} </p></div>
       </div>
     </div>
