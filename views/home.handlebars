@@ -5,36 +5,57 @@
     <link rel="stylesheet" href="/css/style_h.css">
     <script src="/js/main.js"></script>
   </head>
-  <body>
-    <div class='pattern'>
-    </div>
+  <body onclick="hideProfile()">
     <header>
       <div class="header">
-    <div id="nav">
-      <nav>
+{{#if user}}
+<div class="outside_p" >
+  <div class="inside_p">
+  <div id="profile" onmouseover="openProfile()" onclick="showProfile()">
+  </div>
+  <div id="username1" >
+    <p>{{user.username}}</p>
+  </div>
+    <div id="menu">
         <ul>
-          <li><a href="/users/home">Home</a></li>
-          <li><a href="/">Register</a></li>
-          <li id="btn2" onclick="openModal()"><a  >Login</a></li>
+        <li><a href="#">Profile</li><a>
+        <li><a href="#">Settings</li><a>
         </ul>
-      </nav>
-    </div>
-      <header>
-      </div>
-<div class="container">
-  <p>Home page</p>
-</div>
+        </div>
 
-    <div class="footer">
+ </div>
+  </div>
+
+    {{/if}}
+<div id="nav" onmouseover="closeProfile()" >
+        <nav>
+          <ul>
+            <li><a href="/users/home">Home</a></li>
+            {{#if user}}
+            <li href="#"> Admin panel</li>
+            <li><a href="/users/logout"> Logout</a></li>
+            {{else}}
+            <li><a href="/">Register</a></li>
+              <li id="btn2" onclick="openModal()"><a>Login</a></li>
+              {{/if}}
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </header>
+<div class="container" onmouseover="closeProfile()">
+  <div id="everything">
+  <div class="footer">
     <footer> &copy; 2018 The Invitations Center</footer>
   </div>
-  <div class="around" id="modal">
+</div>
+<div class="around" id="modal">
       <div class=inside>
       <div class="header1">
         <span class="closeBtn" onclick="closeModal()">&times;</span>
         <p>Sign-in</p>
       </div>
-      <form method="post" action="users/login" class="signin_form">
+      <form method="post" action="/users/login" class="signin_form">
         <div class="input1">
       <input class="username" type="text" name="username" placeholder="Username or E-mail">
     </div>
@@ -45,5 +66,6 @@
     </form>
     </div>
     </div>
-   </body>
+    </div>
+</body>
 </html>

@@ -28,3 +28,27 @@ function closeSuccess(){
 function successFunc(){
   document.getElementById('success').style.display = "none";
 }
+
+
+
+var open;
+function openProfile(){
+  open = setTimeout(showProfile, 500);
+}
+
+
+
+function showProfile(){
+var shown =  document.getElementById('menu').style.display = "block";
+  document.getElementById('profile').style.background =  "url('/images/profile.png') no-repeat";
+}
+
+var close;
+function closeProfile(){
+  close = setTimeout(hideProfile, 400);
+}
+
+function hideProfile(){
+  var hidden = document.getElementById('menu').style.display = "none";
+  document.getElementById('profile').style.background =  "url('/images/profile_bw.png') no-repeat";
+}
