@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/style_a.css">
+</head>
+<body>
+  <header>
+   <div class="header">
+    <div class="outside_p"  id="menu">
+     <div class="inside_p">
+      <div>
+       <ul>
+         <li id="first">{{user.username}}</li>
+         <li><a href="#">Profile</a></li>
+         <li><a href="#">Settings</a></li>
+       </ul>
+      </div>
+     </div>
+    </div>
+     <div id="profile">
+     </div>
+     <div id="nav">
+      <nav>
+       <ul>
+          <li><a href="/users/home">Home</a></li>
+          <li id="logout_button"><a href="/users/logout"> Logout</a></li>
+       </ul>
+      </nav>
+     </div>
+   </div>
+  </header>
+ <div class="container">
+   <div class="all_users">
+     <div class="user">
+       <div id="hat">
+         <p>Users</p>
+       </div>
+      <div class="ul">
+  {{#if users}}
+    <ul>
+     {{#each users}}
+      <div class="eachuser">
+         <img src="/images/profile.png"><li> {{username}}</li>
+      </div>
+     {{/each}}
+    </ul>
+  </div>
+  {{/if}}
+  <div>
+    <button id="btn4">Invite</button>
+  </div>
+      </div>
+ </div>
+
+  <div class="footer">
+    <footer> &copy; 2018 The Invitations Center</footer>
+   </div>
+ </div>
+ <script src="/js/main.js"></script>
+</body>
+</html>

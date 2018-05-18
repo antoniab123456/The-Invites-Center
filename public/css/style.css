@@ -221,7 +221,6 @@ top: 0;
 height: 100%;
 width: 100%;
 overflow: auto;
-background: url('/images/blur1.png') no-repeat;
 background-size: 100% 100%;
 }
 
@@ -296,8 +295,6 @@ position: relative;
 animation: shake 0.2s;
 }
 
-
-
 .btn_green {
   background-color: #32CD32;
   color: #fff;
@@ -306,6 +303,7 @@ animation: shake 0.2s;
   border-radius: 5px;
   margin-top: 10px;
 }
+
 .success_message{
   border: 2px solid rgba(50, 205, 50, 0.3);
   background-color: #fff;
@@ -464,7 +462,7 @@ transition: background 0.5s ease-in-out;
 }
 
 
-@media(max-height: 800px) {
+/*@media(max-height: 800px) {
   .header nav{
     top: 30px;
   }
@@ -698,7 +696,7 @@ transition: background 0.5s ease-in-out;
  }
 }
 
-@media(max-width: 1150px){
+/*@media(max-width: 1150px){
   .header nav{
     left:670px;
   }

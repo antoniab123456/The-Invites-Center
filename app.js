@@ -1,4 +1,5 @@
 var express = require('express');
+var morgan = require('morgan');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -11,6 +12,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var favicon = require('serve-favicon');
+var nodemailer = require('nodemailer');
 
 mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;
@@ -20,6 +22,7 @@ var users = require('./routes/users');
 
 // Init App
 var app = express();
+app.use(morgan('dev'));
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -51,7 +54,7 @@ app.use(passport.session());
 
 // Express Validator
 app.use(expressValidator({
-  errorFormatter: function(param, msg, value) {
+  errorFormatter:(param, msg, value) => {
       var namespace = param.split('.')
       , root    = namespace.shift()
       , formParam = root;
@@ -71,7 +74,7 @@ app.use(expressValidator({
 app.use(flash());
 
 // Global Vars
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');

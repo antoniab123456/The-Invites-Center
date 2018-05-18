@@ -3,15 +3,6 @@
   margin: 0;
 }
 
-.container {
-  width: 90%;
-  margin: 20px 10px 0 10px;
-}
-
-.container p{
-  text-align: center;
-  font-size: 30px;
-}
 
 a::selection{
   background-color: #f5d5e6;
@@ -28,7 +19,18 @@ body {
   line-height: 1.6;
 }
 
+
+#profile{
+  background: url('/images/profile_bw.png') no-repeat;
+  transition: background 0.5s ease-in-out;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
 .outside_p{
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -39,44 +41,19 @@ body {
 
 .inside_p{
   border-radius: 10px;
-  margin: 20px 20px;
-  padding:  5px 10px 1px 5px;
-  height: 300px;
-  width: 20%;
-}
-
-#profile{
-  background: url('/images/profile_bw.png') no-repeat;
-  transition: background 0.5s ease-in-out;
-  width: 35px;
-  height: 35px;
-  overflow: hidden;
-}
-
-#username1{
-  font-size: 15px;
-  font-family: Verdana;
-  float: right;
-  position: relative;
-  left: -180px;
-  top: -23px;
-}
-
-#menu{
-  display: none;
+  position: absolute;
+  top: 3px;
+  left: 110px;
+  z-index: 1;
   overflow: hidden;
   border-top: 1px solid #B8B8B8;
   border-left: 1px solid #B8B8B8;
   border-right: 1px solid #B8B8B8;
-  width: 50%;
+  width: 10%;
   background-color: #D3D3D3;
   animation: showmenu 1s;
 }
 
-@keyframes showmenu{
-  from{opacity: 0};
-  to{opacity: 1};
-}
 
 #menu ul{
 padding: 0;
@@ -94,6 +71,10 @@ text-decoration: none;
   color: #484848;
 }
 
+#first{
+  font-weight: 600;
+}
+
 .header {
   overflow: hidden;
   padding: 20px 0 50px 70px;
@@ -107,14 +88,14 @@ text-decoration: none;
   position: absolute;
   top: 40px;
   font-size: 18px;
-  left: 890px;
+  left: 900px;
   float: right;
 }
 
 .header nav li {
   float: left;
   display: inline;
-  padding: 0px 50px 0 50px;
+  padding: 0px 40px 0 40px;
 }
 
 header nav li a{
@@ -139,13 +120,40 @@ header nav li a{
   cursor: pointer;
 }
 
+#logout_button{
+  padding: 8px 20px;
+  background-color: #FF69B4;
+  color: #484848;
+  border-radius: 5px;
+  padding: 8px 20px;
+  font-size: 18px;
+  transition: background 0.5s ease-in-out;
+  position: relative;
+  top: -5px;
+  left: 40px;
+}
+ #logout_button:hover{
+   background-color: #fb98ca;
+   cursor: pointer;
+ }
 
-.footer{
-  position: absolute;
-  top: 750px;
-  left: 550px;
-  font-size: 19px;
-  color: #606060;
+.container {
+ width: 100%;
+ margin: 30px 0px 0px 0px;
+ background: url('/images/container.jpg')no-repeat;
+ height: 650px;
+ background-size:cover;
+ position: absolute;
+ z-index: -1;
+ top: 60px;
+ bottom: 0;
+ left: 0;
+ right: 0;
+}
+
+.container p{
+  text-align: center;
+  font-size: 30px;
 }
 
 
@@ -159,12 +167,13 @@ top: 0;
 height: 100%;
 width: 100%;
 overflow: auto;
-background: rgba(0, 0, 0, 0.6);
+z-index: 9999;
 /*background: url('/images/blur1.png') no-repeat;
 background-size: 100% 100%;*/
 }
 
 .inside{
+  z-index: 1;
  background-color: #e8e7e7;
  border-radius: 10px;
  margin: 13% auto;
@@ -175,6 +184,7 @@ background-size: 100% 100%;*/
  overflow: hidden;
  padding: 4% 68px;
  height: 250px;
+
 }
 
 .header1 p{
@@ -273,6 +283,15 @@ transition: background 0.5s ease-in-out;
   background: url('/images/lock.png') no-repeat 5px 5px;
 }
 
+
+.footer{
+  position: absolute;
+  top: 670px;
+  left: 550px;
+  font-size: 19px;
+  color: #606060;
+}
+
 @-webkit-keyframes autofill {
     to {
       background: url('/images/user.png') no-repeat 5px 5px;
@@ -285,6 +304,10 @@ transition: background 0.5s ease-in-out;
     }
 }
 
+@keyframes showmenu{
+  from{opacity: 0};
+  to{opacity: 1};
+}
 
 @keyframes modalopen{
   from{ opacity: 0}
@@ -296,7 +319,7 @@ transition: background 0.5s ease-in-out;
   to{opacity: 0}
 }
 
-@media(max-height: 800px) {
+/*@media(max-height: 800px) {
   .header nav{
     top: 30px;
   }

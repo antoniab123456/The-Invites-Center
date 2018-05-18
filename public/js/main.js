@@ -1,11 +1,12 @@
 
-
 function openModal(){
    document.getElementById('modal').style.display = "block";
+   document.getElementById('blur').style.filter = "blur(5px)";
 }
 
 function closeModal(){
   document.getElementById('modal').style.display = "none";
+   document.getElementById('blur').style.filter = "blur(0px)";
 }
 
 var errorVar;
@@ -21,34 +22,31 @@ function messageFunc(){
 var successVar;
 
 function closeSuccess(){
- successVar = setTimeout(messageFunc, 1500);
+ successVar = setTimeout(successFunc, 1500);
 }
-
 
 function successFunc(){
   document.getElementById('success').style.display = "none";
+
 }
 
 
 
-var open;
-function openProfile(){
-  open = setTimeout(showProfile, 500);
+
+var profile = document.getElementById('profile');
+var menu = document.getElementById('menu');
+
+ profile.addEventListener('mouseover', openMenu);
+ window.addEventListener('click', closeMenu);
+
+function openMenu(){
+  menu.style.display = "block";
+  profile.style.background = "url('/images/profile.png') no-repeat";
 }
 
-
-
-function showProfile(){
-var shown =  document.getElementById('menu').style.display = "block";
-  document.getElementById('profile').style.background =  "url('/images/profile.png') no-repeat";
-}
-
-var close;
-function closeProfile(){
-  close = setTimeout(hideProfile, 400);
-}
-
-function hideProfile(){
-  var hidden = document.getElementById('menu').style.display = "none";
-  document.getElementById('profile').style.background =  "url('/images/profile_bw.png') no-repeat";
+function closeMenu(e){
+  if(e.target == menu){
+    menu.style.display = "none";
+    profile.style.background = "url('/images/profile_bw.png') no-repeat";
+ }
 }
