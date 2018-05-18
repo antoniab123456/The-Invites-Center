@@ -4,7 +4,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/user');
 const nodemailer = require('nodemailer');
-
+var env = require('dotenv/config');
 
 
 
@@ -14,7 +14,7 @@ router.post('/register', (req, res) => {
     var username = req.body.username;
     var password = req.body.password;
     var passwordConfirm = req.body.passwordConfirm;
-  
+
     const output = `<p>Please, click this link to confirm your email</p>
     <a href="/invitation"> test </a>
     `
@@ -24,8 +24,8 @@ router.post('/register', (req, res) => {
       port: 465,
       secure: true,
       auth: {
-        user: 'whiteley555@yandex.ru',
-        pass: 'skidrow1989'
+        user: process.env.EMAIL_ADDRESS,
+        pass: process.env.EMAIL_PASSWORD
       }
     });
 
