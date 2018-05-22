@@ -1,27 +1,33 @@
-var express = require('express');
-var morgan = require('morgan');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
-var expressValidator = require('express-validator');
-var flash = require('connect-flash');
-var session = require('express-session');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
-var mongoose = require('mongoose');
-var favicon = require('serve-favicon');
-var nodemailer = require('nodemailer');
+const express = require('express');
+const morgan = require('morgan');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+const expressValidator = require('express-validator');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const mongo = require('mongodb');
+const mongoose = require('mongoose');
+const favicon = require('serve-favicon');
+const nodemailer = require('nodemailer');
+const app = require('express')();
+const server = require('http').Server(app);
+const io = require('socket.io')(server, {serveClient: true});
+const socketEvents = require('./socket_events');
 
-mongoose.connect('mongodb://localhost/loginapp');
-var db = mongoose.connection;
+const db = mongoose.connection;
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+mongoose.connect('mongodb://127.0.0.1/loginapp');
+mongoose.Promise = require('bluebird');
+mongoose.set('debug', true);
+
+const routes = require('./routes/index');
+const users = require('./routes/users');
 
 // Init App
-var app = express();
 app.use(morgan('dev'));
 
 // View Engine
@@ -55,7 +61,7 @@ app.use(passport.session());
 // Express Validator
 app.use(expressValidator({
   errorFormatter:(param, msg, value) => {
-      var namespace = param.split('.')
+      const namespace = param.split('.')
       , root    = namespace.shift()
       , formParam = root;
 
@@ -87,9 +93,11 @@ app.use((req, res, next) => {
 app.use('/', routes);
 app.use('/users', users);
 
-// Set Port
-app.set('port', (process.env.PORT || 3000));
 
-app.listen(app.get('port'), function(){
-	console.log('Server started on port '+app.get('port'));
+
+server.listen(3000, () => {
+  console.log('Server started on port 3000');
 });
+
+
+socketEvents(io);

@@ -1,9 +1,8 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 
-
-var UserSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
   username: {
     type: String,
     index: true,
@@ -15,20 +14,19 @@ var UserSchema = mongoose.Schema({
   email: {
     type: String
     },
+  confirmed: {
+     type: Boolean,
+     defaultValue: false
+   }, 
   name: {
     type: String
   }
-  //secretToken: {
-    //type: String
-  //}
-  //active: {
-    //type: String
-  //}
+
 });
 
 
 
-var User = module.exports = mongoose.model('User', UserSchema);
+const User = module.exports = mongoose.model('User', UserSchema);
 
 module.exports.createUser = (newUser, callback) => {
 	bcrypt.genSalt(10, (err, salt) => {
@@ -39,8 +37,8 @@ module.exports.createUser = (newUser, callback) => {
 	});
 }
 
-module.exports.getUserByUsername = (username, callback) => {
-	var query = {username: username};
+module.exports.getUserByUsername = (email, callback) => {
+	const query = {email: email};
 	User.findOne(query, callback);
 }
 

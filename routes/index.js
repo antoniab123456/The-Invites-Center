@@ -11,10 +11,5 @@ router.get('/', (req, res) => {
     res.render('invitation');
   });
 
-router.get('/popup', (req, res) =>{
-  res.render('popup');
-});
-
-
 
   module.exports = router;
