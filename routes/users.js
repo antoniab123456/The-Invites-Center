@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const config = require('../config/config');
 const jwt = require('jsonwebtoken');
-const helpers = require('../helpers').setUserInfo;
 const authenticationController = require('../controllers/authentication');
 const loginController = require('../controllers/login');
 const registrationController = require('../controllers/registration');
-
+const passport = require('passport');
+const env = require('dotenv/config');
+const User = require('../models/user');
 
 router.post('/register', registrationController.registrationValidation);
 
@@ -26,7 +26,20 @@ router.get("/logout", (req, res) =>{
 
 router.get('/admin', authenticationController.ensureAuthenticated, authenticationController.adminAuth);
 
-//router.post('/confirmation/:token', authController.emailConfirmation);
 
+/*router.get('/confirmation/:token', async (req, res, next) => {
+    try {
+        var { user: { id } } = jwt.verify(req.params.token, REG_SECRET);
+        await models.User.update({confirmed: true }, { where: { id } });
+      } catch (e) {
+        res.status('404');
+      }
+     var login = " Your email is verified!"
+     return res.render('index', {login: login});
+});*/
+
+
+
+//router.post('/generate/invitation',  authenticationController.generateLink);
 
 module.exports = router;

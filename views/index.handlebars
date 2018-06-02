@@ -3,124 +3,146 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
-
   </head>
-  <body>
+<body>
     <div id="blur">
     <div class='pattern'>
       <img src="/images/pattern.jpg">
     </div>
-    <header>
-      <div class="header">
+<header>
+<div class="header">
     <div id="nav">
       <nav>
         <ul>
           <li><a href="/users/home">Home</a></li>
           <li><a href="/">Register</a></li>
-            <li id="btn2" onclick="openModal()"><a>Login</a></li>
+          <li id="btn2" onclick="openModal()"><a>Login</a></li>
         </ul>
       </nav>
     </div>
-      <header>
-      </div>
+</div>
+</header>
+
 <div class="container">
+
      <div id="box1">
          <p id="header"> The Invitation center</p>
          <p id="text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  </p>
      </div>
 
-     <div id="box2">
-<form class="reg_form" method="post" action="/users/register">
-          <p id="account"> Create an account</p>
+   <div id="box2">
+        <form class="reg_form" method="post" action="/users/register">
+            <p id="account"> Create an account</p>
+            <div>
+               <input name="email" type="e-mail" placeholder="E-mail" required>
+            </div>
+            <div>
+               <input name='name' id="name1" type="text" placeholder="Name">
+            </div>
+            <div>
+               <input name="username" id="username" type="text" placeholder="Username" required>
+           </div>
+            <div>
+               <input name="password" type="password" placeholder="Password" required>
+            </div>
+            <div>
+               <input name="passwordConfirm" type="password" placeholder="Password Confirmation" required>
+            </div>
+            <div>
+                <button> Register</button>
+            </div>
+            <div id="existing">
+              <p> Already have an account? <a onclick="openModal()" >Login</a><p>
+            </div>
+        </form>
+     </div>
 
-          <div>
-             <input name="email" type="e-mail" placeholder="E-mail" required>
-       </div>
-       <div>
-           <input name='name' id="name1" type="text" placeholder="Name">
-         </div>
-       <div>
-         <input name="username" id="username" type="text" placeholder="Username" required>
-       </div>
-      <div>
-        <input name="password" type="password" placeholder="Password" required>
-      </div>
-      <div>
-        <input name="passwordConfirm" type="password" placeholder="Password Confirmation" required>
-      </div>
-      <div>
-      <button> Register</button>
-      </div>
-      <div id="existing">
-        <p> Already have an account? <a onclick="openModal()" >Login</a><p>
-      </div>
-      </form>
-    </div>
-    <div class="footer">
-    <footer> &copy; 2018 The Invitations Center</footer>
-      </div>
-    </div>
-  </div>
+     <div class="footer">
+        <footer> &copy; 2018 The Invitations Center</footer>
+     </div>
+
+</div>
+</div>
 
 
 <div class="around" id="modal" name="message">
-      <div class="inside">
-      <div class="header1">
-        <span class="closeBtn" onclick="closeModal()">&times;</span>
+  <div class="inside">
+    <div class="header1">
+       <span class="closeBtn" onclick="closeModal()">&times;</span>
         <p>Sign-in</p>
-      </div>
-      <form method="post" action="/users/login" class="signin_form">
-        <div class="input">
-      <input class="username" type="text" name="username" placeholder="Username or E-mail">
     </div>
-    <div class="input">
-      <input class="password" type="password" name="password" placeholder="Password">
-      </div>
+    <form method="post" action="/users/login" class="signin_form">
+      <div class="input">
+        <input class="username" type="text" name="username" placeholder="Username or E-mail">
+     </div>
+     <div class="input">
+        <input class="password" type="password" name="password" placeholder="Password">
+     </div>
       <button class="btn3" name="submit"> Login</button>
     </form>
-    </div>
-    </div>
+  </div>
+</div>
 
-    {{#if errors}}
-      <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
-        <div class="message">
-          <img src="/images/error.png">
-      {{#each errors}}
-      <div  class="msg">
-      <p>{{msg}}</p>
-    </div>
-  {{/each}}
+{{#if errors}}
+  <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
+     <div class="message">
+       <img src="/images/error.png">
+     {{#each errors}}
+       <div  class="msg">
+        <p>{{msg}}</p>
+        </div>
+     {{/each}}
     </div>
   </div>
-          {{/if}}
+{{/if}}
 
-        {{#if success_msg}}
-        <div class="around_s" id="success" onmouseover="closeSuccess()" onclick="successFunc()">
-              <div class="success_message">
-             <img src="/images/success.png">
+{{#if success_msg}}
+  <div class="around_s" id="success" onmouseover="closeSuccess()" onclick="successFunc()">
+    <div class="success_message">
+       <img src="/images/success.png">
         <div class="msg_s"><p> {{success_msg}}</p></div>
         <button class="btn_green" onclick="openModal()">Login</button>
-              </div>
-       </div>
-        {{/if}}
+    </div>
+  </div>
+{{/if}}
 
-        {{#if error_msg}}
-        <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
-          <div class="message">
+{{#if login}}
+  <div class="around_s" id="success" onmouseover="closeSuccess()" onclick="successFunc()">
+    <div class="success_message">
+       <img src="/images/success.png">
+        <div class="msg_s"><p>{{login}}</p></div>
+        <button class="btn_green" onclick="openModal()">Login</button>
+    </div>
+  </div>
+{{/if}}
+
+  {{#if error_msg}}
+    <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
+      <div class="message">
           <img src="/images/error.png">
-        <div class="msg"><p> {{error_msg}} </p></div>
+          <div class="msg"><p> {{error_msg}} </p></div>
       </div>
     </div>
-        {{/if}}
+  {{/if}}
 
-        {{#if error}}
-        <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
-          <div class="message">
+{{#if error}}
+  <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
+    <div class="message">
        <img src="/images/error.png">
-        <div class="msg"><p> {{error}} </p></div>
-      </div>
+       <div class="msg"><p> {{error}} </p></div>
     </div>
-        {{/if}}
-          <script src="/js/main.js"></script>
+</div>
+{{/if}}
+
+{{#if inUse}}
+  <div class="around_m" id="message" onmouseover="closeThis()" onclick="messageFunc()">
+    <div class="message">
+      <img src="/images/error.png">
+      <p>{{inUse}}</p>
+    </div>
+ </div>
+{{/if}}
+
+  <script src="/js/main.js"></script>
    </body>
 </html>

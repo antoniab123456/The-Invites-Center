@@ -3,7 +3,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.dev.js"></script>-->
     <link rel="stylesheet" href="/css/style_a.css">
+    <link rel="stylesheet" href="/css/link_gen.css">
 </head>
 <body>
   <header>
@@ -53,7 +55,7 @@
   </div>
       </div>
  </div>
-<div class="chat_window">
+<!--<div class="chat_window">
   <div class="chat_hat">
     <p> Community Chat </p>
   </div>
@@ -86,13 +88,31 @@
     <div class="enter_message">
       <textarea name="composedMessage" id="textarea_message" placeholder="New message..." ></textarea>
     </div>
-</div>
+</div> -->
 
   <div class="footer">
     <footer> &copy; 2018 The Invitations Center</footer>
-   </div>
+  </div>
+
+  <div id="invitationModel" class="around_invitation">
+    <div class="inside_invitation">
+      <span class="closeinvitation" id="closeinvitation" onclick="closeModal()">&times;</span>
+        <p class="invitation_header">Click on the button to generate the invitation link</p>
+          <div id="around_input">
+                <input id="link_placement" type="text" id="links" value="" readonly>
+          </div>
+        <div>
+            <button id="generate_link">Generate Link</button>
+        </div>   
+      </div>
+  </div>
+
+  
 
  <script src="/js/main.js"></script>
-
+ <script src="/js/link_gen.js"></script>
+ <!--<script src="/js/sockets.js"></script>-->
+ <script src="../jquery/jquery.js"></script>
+ <script src="/js/ajax.js"></script>
 </body>
 </html>

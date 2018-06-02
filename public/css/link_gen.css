@@ -1,0 +1,119 @@
+.around_invitation {
+  /*display: none;*/
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.inside_invitation {
+ background-color: #e8e7e7;
+ margin: 13% auto;
+ width: 25%;
+ box-shadow: 0 5px 8px 0 rgba(0,0,0,0.3),0 7px 20px 0 rgba(0,0,0,0.2);
+ animation-name: invitemodalopen;
+ animation-duration: 1s;
+ overflow: hidden;
+ height: 200px;
+ border-radius: 5px;
+ box-sizing: border-box;
+ padding-left: 10px;
+ padding-top: 20px;
+}
+
+
+.inside_invitation p{
+font-size: 18px;
+}
+
+.invitation_header{
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+}
+
+#link_placement {
+  margin-top: 5px;
+  width: 95%;
+  padding: 10px 11px 10px 37px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  color: #989898;
+  box-sizing: border-box;
+}
+
+#generate_link{
+    margin-top: 15px;
+    margin-left: 80px;
+    padding: 10px 25px;
+    color: #fff;
+    background-color: #7300e6;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+}
+
+#generate_link:hover{
+    cursor: pointer;
+    background-color: #9347de;
+}
+
+.closeinvitation{
+    float: right;
+    color:	#C0C0C0;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    top: -20px;
+    right: 10px;
+}
+
+.closeinvitation:hover{
+   color: #696969;
+   cursor: pointer;
+}
+
+
+.copy p{
+  font-size:7px;
+  padding-top: 5px;
+  padding-bottom: 2.5px;
+  color: #bbb8b8;
+}
+
+.copy{
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgb(201, 199, 199);
+  border-radius: 2px;
+  width: 20px;
+  height: 22px;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3),0 1px 2px 0 rgba(0,0,0,0.2);
+  position: fixed;
+  top: 286px;
+  margin-left: 5px;
+}
+
+.copy:hover{
+    border: 1px solid rgb(163, 163, 163);
+    color: rgb(163, 163, 163);
+    cursor: pointer;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.4),0 1px 2px 0 rgba(0,0,0,0.3);
+}
+
+.copy p:hover{
+    color: rgb(163, 163, 163);
+}
+
+
+@keyframes invitemodalopen{
+  from{ opacity: 0}
+  to {opacity: 1}
+}
+

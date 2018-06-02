@@ -1,5 +1,7 @@
 const express = require('express');
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+
 
 exports.ensureAuthenticated = (req, res, next) => {
   if(req.isAuthenticated()){
@@ -13,9 +15,11 @@ exports.ensureAuthenticated = (req, res, next) => {
 exports.adminAuth = (req, res) =>{
     User.find({}, (err, users) => {
      if(err){
-       res.flash('error_msg', "Oops, something went wrong");
+       req.flash('error_msg', "Oops, something went wrong");
        next;
      }
        res.render('admin', {users: users});
    });
 }
+
+

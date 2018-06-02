@@ -12,23 +12,22 @@ const LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 const mongoose = require('mongoose');
 const favicon = require('serve-favicon');
-const nodemailer = require('nodemailer');
-const app = require('express')();
-const server = require('http').Server(app);
-const io = require('socket.io')(server, {serveClient: true});
-const socketEvents = require('./socket_events');
+const env = require('dotenv/config');
+const jwt = require('jsonwebtoken');
 
-const db = mongoose.connection;
+const app = express();
 
-mongoose.connect('mongodb://127.0.0.1/loginapp');
-mongoose.Promise = require('bluebird');
+app.set('port', (process.env.PORT || 3000));
+
+app.listen(app.get('port'), function(){
+	console.log('Server started on port '+app.get('port'));
+});
+
+
+mongoose.connect('mongodb://localhost:27017/loginapp');
 mongoose.set('debug', true);
 
-const routes = require('./routes/index');
-const users = require('./routes/users');
 
-// Init App
-app.use(morgan('dev'));
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -39,6 +38,8 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+
 
 // Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -58,6 +59,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+
 // Express Validator
 app.use(expressValidator({
   errorFormatter:(param, msg, value) => {
@@ -76,7 +79,6 @@ app.use(expressValidator({
   }
 }));
 
-// Connect Flash
 app.use(flash());
 
 // Global Vars
@@ -88,16 +90,18 @@ app.use((req, res, next) => {
   next();
 });
 
-
+const routes = require('./routes/index');
+const users = require('./routes/users');
 
 app.use('/', routes);
 app.use('/users', users);
 
-
-
-server.listen(3000, () => {
-  console.log('Server started on port 3000');
+// Enable CORS from client-side
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8080');
+  res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, Access-Control-Allow-Credentials');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  res.end();
 });
 
-
-socketEvents(io);

@@ -206,7 +206,7 @@ box-sizing: border-box;
 
 #btn4:hover{
   background-color: #376ba0;
-
+  cursor: pointer;
 }
 
 
