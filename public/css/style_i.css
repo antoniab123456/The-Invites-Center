@@ -1,4 +1,4 @@
-*{
+/* *{
   margin:0;
 }
 body {
@@ -47,14 +47,14 @@ body {
   background-color: #e875af;
 }
 
-
+/* 
 footer{
   margin-top: 100px;
   font-size: 20px;
   color: #808080;
-}
+} */
 
-
+/* 
 @media(max-height: 900px) {
   #invite{
     margin-top: 100px;
@@ -220,3 +220,4 @@ footer{
       margin-top: 170px;
     }
 }
+}  */

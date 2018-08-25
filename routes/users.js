@@ -1,45 +1,23 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
-const authenticationController = require('../controllers/authentication');
-const loginController = require('../controllers/login');
-const registrationController = require('../controllers/registration');
-const passport = require('passport');
-const env = require('dotenv/config');
-const User = require('../models/user');
-
-router.post('/register', registrationController.registrationValidation);
-
-router.get('/home', (req, res) => {
-   res.render('home');
-});
+const login = require('../controllers/login');
+const registration = require('../controllers/registration');
+const authentication = require('../controllers/authentication');
+const main = require('../controllers/main');
 
 
-router.post('/login', loginController.passportAuthentication);
+/*Ger requests  */
+router.get('/home', main.getHome);
+router.get('/logout', authentication.getLogout);
+router.get('/admin', authentication.ensureAuthenticated, authentication.adminAuth);
+router.get('/verify', registration.verifyEmail);
+router.get('/change_pass', authentication.changePassword);
+router.get('/*', main.notFound);
 
-router.get("/logout", (req, res) =>{
-    req.logout();
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('/');
-});
-
-
-router.get('/admin', authenticationController.ensureAuthenticated, authenticationController.adminAuth);
-
-
-/*router.get('/confirmation/:token', async (req, res, next) => {
-    try {
-        var { user: { id } } = jwt.verify(req.params.token, REG_SECRET);
-        await models.User.update({confirmed: true }, { where: { id } });
-      } catch (e) {
-        res.status('404');
-      }
-     var login = " Your email is verified!"
-     return res.render('index', {login: login});
-});*/
-
-
-
-//router.post('/generate/invitation',  authenticationController.generateLink);
+/* Post requests  */
+router.post('/register', registration.postReg);
+router.post('/login', login.postLogin);
+router.post('/forgot', authentication.forgotPassword);
+router.post('/change_pass', authentication.postPassChange);
 
 module.exports = router;

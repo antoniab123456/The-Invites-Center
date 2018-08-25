@@ -1,15 +1,11 @@
 
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const main = require('../controllers/main');
 
-//connecting to the view called index through "/" , getting the home page
-router.get('/', (req, res) => {
-    res.render('index');
-  });
-
-  router.get('/invitation', (req,res) => {
-    res.render('invitation');
-  });
+/* Get Routes */
+router.get('/', main.getIndex);
+router.get('/invitation', main.getInvite);
 
 
-  module.exports = router;
+module.exports = router;

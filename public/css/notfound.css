@@ -1,0 +1,59 @@
+#notfound_main_container{
+    margin-top: 6.4%;
+    box-sizing: border-box;
+    background: linear-gradient(#40015f, #f3baf8 90%);
+    height: 630px;
+    width: 100%;
+}
+
+#four_error{
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 170px;
+    text-shadow: 2px 2px 3px rgb(187, 185, 185);
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    font-family: 'Francois One', sans-serif;
+}
+
+#not_found_header{
+    font-family: 'Francois One', sans-serif;
+    font-size: 45px;
+    color: #643575;
+    position: absolute;
+    top: 50%;
+    left: 34%;
+}
+
+#home_link, #admin_panel_link, #register_link{
+    text-decoration: none;
+    font-family: 'Francois One', sans-serif;
+    font-size: 18px;
+    color: #7e4892;
+    background-color: rgb(255, 255, 255, 0.9);
+    padding: 10px 30px;
+    border-radius: 5px;
+    position: absolute;
+    top: 65%;
+}
+
+
+#home_link{
+    left: 39%;
+}
+
+#admin_panel_link{
+    left: 51%;
+}
+
+#register_link {
+    left: 52%;
+}
+
+#home_link:hover, 
+#register_link:hover,
+#admin_panel_link:hover{
+    color: #fff;
+    background-color: #5e0a5e;
+}

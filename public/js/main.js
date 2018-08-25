@@ -1,52 +1,55 @@
+let select = (sel) => {return document.querySelector(sel)};
 
-function openModal(){
-   document.getElementById('modal').style.display = "block";
-   document.getElementById('blur').style.filter = "blur(5px)";
+let login_main_button = select('#login_main_button'),
+    reg_exiting_acc_login = select('#reg_exiting_acc_login'),
+    index_container = select('#index_container'),
+    login_modal = select('#login_modal'),
+    main_nav_bar = select('#main_nav_bar'),
+    admin_home_main_container = select('#admin_home_main_container'),
+    notfound_main_container = select('#notfound_main_container'),
+    close_login_modal = select('#close_login_modal'),
+    invitation_footer = select('#invitation_footer'),
+    success_modal = select('.success_modal'),
+    pass_change_main_container = select('#pass_change_main_container'),
+    suc_login_btn = select('.suc_login_btn');
+
+let setBlur = (el, blur) => { if(el !== null){el.style.filter = `blur(${blur}px)`}};
+let setDisplay = (el, display) => { if(el !== null){el.style.display = display}};
+let executeEvent = (el, cb) => {if(el !== null){el.onclick = () => {cb()}}};
+let executeKeyup = (el, cb) => {if(el !== null){el.onkeyup = () => {cb()}}};
+
+let blur = () => {
+    setBlur(index_container, 5);
+    setBlur(main_nav_bar, 5);
+    setBlur(admin_home_main_container, 5);
+    setBlur(notfound_main_container, 5);
+    setBlur(pass_change_main_container, 5);
+    setBlur(invitation_footer, 5);
 }
 
-function closeModal(){
-  document.getElementById('modal').style.display = "none";
-   document.getElementById('blur').style.filter = "blur(0px)";
+let unblur = () => {
+    setBlur(index_container, 0);
+    setBlur(main_nav_bar, 0);
+    setBlur(admin_home_main_container, 0);
+    setBlur(notfound_main_container, 0);
+    setBlur(pass_change_main_container, 0);
+    setBlur(invitation_footer, 0);
 }
 
-var errorVar;
-
-function closeThis(){
-   errorVar = setTimeout(messageFunc, 1500);
+let openLoginModal = () => {
+    setDisplay(login_modal, 'block');
+    setDisplay(success_modal,'none');
+    blur();
 }
 
-function messageFunc(){
-  document.getElementById('message').style.display = "none";
-}
-
-var successVar;
-
-function closeSuccess(){
- successVar = setTimeout(successFunc, 1500);
-}
-
-function successFunc(){
-  document.getElementById('success').style.display = "none";
-
+let closeLoginModal = () =>{
+    setDisplay(login_modal, 'none');
+    unblur();
 }
 
 
+executeEvent(login_main_button, openLoginModal);
+executeEvent(close_login_modal,  closeLoginModal);
+executeEvent(reg_exiting_acc_login, openLoginModal);
+executeEvent(suc_login_btn, openLoginModal);
 
-
-var profile = document.getElementById('profile');
-var menu = document.getElementById('menu');
-
- profile.addEventListener('mouseover', openMenu);
- window.addEventListener('click', closeMenu);
-
-function openMenu(){
-  menu.style.display = "block";
-  profile.style.background = "url('/images/profile.png') no-repeat";
-}
-
-function closeMenu(e){
-  if(e.target == menu){
-    menu.style.display = "none";
-    profile.style.background = "url('/images/profile_bw.png') no-repeat";
- }
-}

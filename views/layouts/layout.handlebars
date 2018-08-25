@@ -1,10 +1,138 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/registration.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/flash.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/style_i.css">
+    <link rel="stylesheet" href="/css/gen_invite.css">
+    <link rel="stylesheet" href="/css/notfound.css">
+    <link rel="stylesheet" href="/css/forgot_pass.css">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
     <title>TheInvitesCenter</title>
-  </head>
-  <body>
+</head>
+<body>
     {{{body}}}
+    <header>
+        <nav id='main_nav_bar'>
+            <ul>
+                {{!-- For all users --}}
+                <li><a href="/users/home">Home</a></li>
+
+                {{!-- For users that logged in --}}
+                {{#if user}}
+                    <li><a href="/users/admin"> Admin panel</a></li>
+                    <li id="logout_button"><a href="/users/logout"> Logout</a></li>
+
+                {{!-- For users that didn't login --}}
+                {{else}}
+                    <li><a href="/">Register</a></li>
+                    <button id="login_main_button">Login</button>
+                {{/if}}
+            </ul>
+        </nav>
+    </header>
+    <footer id="invitation_footer"> &copy; 2018 The Invitations Center</footer>
+
+    {{!-- The login modal --}}
+    <div id="login_modal">
+        <div id="inner_login_modal">
+            <div id="login_modal_contents">
+                <div id="inner_login_header">
+                    <span id="close_login_modal">&times;</span>
+                    <p id='login_header_p'>Sign-in</p>
+                </div>
+                <p id='username_incorrect'>The user name or email is incorrect</p>
+                <form method="post" action="/users/login" class="signin_form">
+                    <div class="input">
+                        <input id="login_username" type="text" name="username" placeholder="Username">
+                    </div>
+                    <div id="hide_for_pass">
+                        <div class="input">
+                            <input id="login_password" type="password" name="password" placeholder="Password">
+                        </div>
+                        <button id="login_modal_btn" type='submit' name="submit">Login</button>
+                        <a id='forgot_password_link'>Forgot password?</a>
+                    </div>
+                </form>
+                <button id="send__forgot_link"> Change password</button>
+                <a id='back_to_login'>Login</a>
+            </div>
+        </div>
+    </div>
+
+
+    {{!-- Validation errors --}}
+    {{#if errors}}
+    <div class="err_modal">
+        <div class="err_message">
+            <img src="/images/error.png"> 
+            {{#each errors}}
+                <div class="msg"><p>{{msg}}</p></div>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}} 
+
+    {{!-- Error flash messages --}}
+    {{#if error_msg}}
+        <div class="err_modal">
+            <div class="err_message">
+                <img src="/images/error.png">
+                <div class="err_msg_text"><p>{{error_msg}}</p></div>
+                {{#each errors}}
+                    <div class="msg"><p>{{msg}}</p></div>
+                {{/each}}
+            </div>
+        </div>
+    {{/if}}  
+
+    {{!-- Login Errors for passport --}}
+    {{#if error}}
+        <div class="err_modal">
+            <div class="err_message">
+                <img src="/images/error.png">
+                <div class="err_msg_text"> <p>{{error}}</p> </div>
+            </div>
+        </div>
+    {{/if}}
+
+    {{!-- Success flash modal --}}  
+    {{#if success_msg}}
+        <div class="success_modal">
+            <div class="success_message">
+                <img src="/images/success.png">
+                <div class="success_msg_text"> <p> {{success_msg}}</p> </div>
+                <button class="suc_login_btn">Login</button>
+            </div>
+        </div>
+    {{/if}} 
+
+    <div class="success_modal" id="pass_link">
+        <div class="success_message">
+            <img src="/images/success.png">
+            <div class="success_msg_text"><p>Password change link is successfully sent!</p></div>
+        </div>
+    </div>
+
+    <div class="success_modal" id="pass_changed">
+        <div class="success_message">
+            <img src="/images/success.png">
+            <div class="success_msg_text"><p>Password change link is successfully sent!</p></div>
+        </div>
+    </div>
+
 </body>
+
+<script src="/js/main.js"></script>
+<script src="/js/flash.js"></script>
+<script src="/js/home_page.js"></script>
+<script src="/js/gen_invite.js"></script>
+<script src="/js/change_pass.js"></script>
+
 </html>
+

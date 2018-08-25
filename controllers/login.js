@@ -1,45 +1,53 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
-const env = require('dotenv/config');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 
-
-exports.passportAuthentication = passport.authenticate('local', {successRedirect: '/users/home', failureRedirect:'/', failureFlash: true}),
-(req, res) => {
-   res.redirect('/users/home');
-}
 
 passport.use(new LocalStrategy(
-	function (email, password, done) {
-		User.getUserByUsername(email, (err, user) => {
-			 if (err) throw err;
-			 if (!user) {
-			  	return done(null, false, { message: 'Unknown User' });
-       }
-      // if(!user.confirmed){
-        //return done(null, false, { message: 'Email is not verified'});
-       //}
-            User.comparePassword(password, user.password, (err, isMatch) => {
-          if (err) throw err;
-            if (isMatch) {
-                return done(null, user);
-              } else  {
-                  return done(null, false, { message: 'Invalid password' });
-                }
-             });
-	  });
-}));
+    (username, password, done) => {
+        User.findOne({username: username}, (err, user) => {
+            if (err) throw err;
+            if (!user) {
+                return done(null, false, { message: 'Incorrect Credentials' });
+            }
+            if(!user.confirmed){
+                return done(null, false, { message: 'The email is not confirmed' });
+            } 
 
+            bcrypt.compare(password, user.password, (err, res) => {
+                if(err) throw err;
+                ((err, res) => {
+                    if (err) throw err;
+                    if (res) {
+                        return done(null, user);
+                    } else  {
+                        return done(null, false, { message: 'Incorrect Credentials' });
+                    }
+                })(null, res);
+            });
+        });
+    } 
+));
 
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
-   User.getUserById(id, (err, user) => {
-      done(err, user);
-   });
+    User.findById(id, (err, user) => {
+        done(err, user);
+    });
 });
 
+let login = {
+    postLogin: passport.authenticate('local', { 
+        successRedirect: '/users/home', 
+        failureRedirect:'/', 
+        failureFlash: true
+    })
+}
+
+module.exports = login; 
 

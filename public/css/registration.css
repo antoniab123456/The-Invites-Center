@@ -1,0 +1,96 @@
+
+/* Registration styles */
+#reg_container {
+    position: absolute;
+    top: 18%;
+    left: 60%;
+    width: 34%;
+    min-height: 550px;
+    float: right;
+    margin-right: 60px;
+    border-radius: 10px;
+    background-size: cover;
+    border: 0.5px #B0B0B0 solid;
+    background-color: #F8F8F8;
+}
+
+#reg_form_header {
+    text-align: center;
+    font-size: 30px;
+    margin: 5% 0 10% 0;
+}
+
+.reg_form {
+    width: 81%;
+    padding: 40px 0 30px 10%;
+}
+
+.reg_form input[type="text"] {
+    padding: 15px 0px 15px 12px;
+    width: 43%;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    border: 1px #a3a3a3 solid;
+    font-size: 18px;
+    color: inherit;
+    margin-bottom: 15px;
+}
+
+.reg_form input:not([type="text"]) {
+    width: 90%;
+    padding: 15px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px #a3a3a3 solid;
+    font-size: 18px;
+    color: inherit;
+    margin-bottom: 15px;
+}
+
+.reg_form input::placeholder {
+    font-size: 16px;
+}
+
+#reg_name {
+    float: left;
+}
+
+#reg_username {
+    float: right;
+    position: relative;
+    left: -7px;
+}
+
+.reg_form button {
+    border-radius: 5px;
+    font-size: 18px;
+    padding: 15px 35px;
+    width: 98%;
+    background-color: #FF69B4;
+    border: none;
+    color: #484848;
+    margin-top: 15px;
+    outline: none;
+    transition: background 0.5s ease-in-out;
+}
+
+.reg_form button:hover {
+    background-color: #fb98ca;
+}
+
+#reg_existing_acc_link {
+    font-size: 17px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#reg_existing_acc_link a {
+    color: #4682B4;
+    text-decoration: underline;
+}
+
+#reg_existing_acc_link a:hover {
+    cursor: pointer;
+}

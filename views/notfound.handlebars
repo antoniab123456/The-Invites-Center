@@ -1,0 +1,10 @@
+<div id="notfound_main_container">
+    <div id="four_error">404</div>
+    <div id="not_found_header">SORRY, PAGE NOT FOUND!</div>
+    <a id="home_link" href="/users/home">Go Home</a>
+    {{#if user}}
+        <a id="admin_panel_link" href="/users/admin">Admin page</a>
+    {{else}}
+        <a  id="register_link" href="/"> Register</a>
+    {{/if}}
+</div>

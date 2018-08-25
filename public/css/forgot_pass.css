@@ -1,0 +1,172 @@
+/* Request pass change form */
+
+#send__forgot_link{
+    display: none;
+    padding: 10px 35px;
+    text-align: center;
+    font-size: 19px;
+    background-color: #FF69B4;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: #3c3b3b;
+    transition: background 0.5s ease-in-out;
+    margin: 5px 0 0 30%;
+}
+
+
+#send__forgot_link:hover {
+    background-color: #fb98ca;
+}
+
+
+#forgot_password_link,
+#back_to_login{
+    color: rgb(29, 86, 133);
+    text-decoration: underline;
+    text-align: center;
+}
+
+#forgot_password_link{
+    position: relative;
+    top: 40px;
+    right: 23%;
+}
+
+#back_to_login{
+    display: none;
+    margin-top: 10px;
+}
+
+#forgot_password_link:hover,
+#back_to_login:hover{
+    cursor: pointer;
+}
+
+#username_incorrect{
+    display: none;
+    color: #e40808;
+    font-size: 15px;
+    position: absolute;
+    top: 31%;
+    left: 43%;
+}
+
+/* Styles for the password change page */
+
+#pass_change_main_container{
+    margin-top: 6.4%;
+    box-sizing: border-box;
+    background: linear-gradient(#40015f, #f3baf8 90%);
+    height: 630px;
+    width: 100%;
+}
+
+#inner_pass_change{
+    width: 70%;
+    height: 400px;
+    position: relative;
+    top: 20%;
+    left: 30%;
+    overflow: hidden;
+}
+
+#inner_pass_change_header{
+    font-family: 'Francois One', sans-serif;
+    font-size: 45px;
+    color: #efd1fa;
+    padding: 0 0 20px 0;
+}
+
+#pass_changed_input,
+#pass_confirm_changed_input{
+    background-color:rgb(235, 235, 235) !important;
+    width: 48%;
+    padding: 13px 0 15px 0px;
+    margin: 0px 0 30px 6%;
+    border-radius: 5px;
+    border: 1px #dfdbdb solid;
+    outline: none;
+    font-size: 18px;
+    color: #484848;
+    text-align: center;
+    position: relative;
+    left: -6%;
+    box-sizing: border-box;
+    background: url('/images/lock_bw.png') no-repeat 5px 5px;
+    transition: background 0.5s ease-in-out;
+}
+
+#pass_changed_input::placeholder,
+#pass_confirm_changed_input::placeholder{
+    font-size: 17px;
+}
+
+#pass_changed_input:focus,
+#pass_confirm_changed_input:focus{
+    background: url('/images/lock.png') no-repeat 5px 5px;
+}
+
+#submit_pass_change_btn{
+    font-family: 'Francois One', sans-serif;
+    font-size: 20px;
+    color: #7e4892;
+    background-color: rgb(255, 255, 255, 0.9);
+    padding: 13px 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+    position: relative;
+    left: 17%;
+    outline: none;
+}
+
+#pass_changed{
+    display: none;
+}
+
+/* Validation of passwords */
+
+#pass_short_err,
+#pass_not_equal_err,
+#no_credent_err{
+    display: none;
+    color: #f83737;
+    font-size: 15px;
+    position: absolute;
+}
+
+#pass_short_err{
+    top: 17%;
+    left: 10%;
+}
+
+#no_credent_err{
+    top: 16.8%;
+    left: 16%;
+}
+
+#pass_not_equal_err{
+    top: 37%;
+    left: 15%;
+}
+
+
+#pass_equal,
+#pass_success{
+    display: none;
+    color: #2ac250;
+    font-size: 15px;
+    position: absolute;
+}
+
+#pass_success{
+    top: 17%;
+    left: 16%;
+}
+
+
+#pass_equal{
+    top: 37%;
+    left: 16%;
+}
+
