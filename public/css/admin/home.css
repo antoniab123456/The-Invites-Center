@@ -24,14 +24,14 @@
     width: 35px;
     height: 35px;
     overflow: hidden;
-    margin: 45px 0 0 25px;
+    margin: 45px 0 0 49px;
 }
 
 #profile_icon_picture{
     border: 0.3px solid #B8B8B8;
     width: 5%;
     height: 70px;
-    margin: 15px 0 0 24px;
+    margin: 15px 0 0 47px;
     border-radius: 5px;
 }
 
@@ -49,7 +49,7 @@
     border-radius: 10px;
     position: absolute;
     top: 80px;
-    left: 20px;
+    left: 44px;
     z-index: 1;
     overflow: hidden;
     border-top: 1px solid #B8B8B8;

@@ -6,15 +6,6 @@ let err_modal = document.querySelectorAll('.err_modal'),
 /* Hide error/success models after they appear */
 if(err_modal){
     for(const err of err_modal){
-        if(err.style.display == 'block'){
-            main_nav_bar.style.filter = 'blur(5px)';
-            invitation_footer.style.filter = 'blur(5px)';
-            setBlur(admin_home_main_container, 5);
-            setBlur(notfound_main_container, 5);
-            setBlur(pass_change_main_container, 5);
-            setBlur(index_container, 5);
-        }
-
         setTimeout(() => {
             err.style.display = 'none';
         }, 3000);
@@ -22,14 +13,6 @@ if(err_modal){
 }
 
 for(const succ of success_modal){
-    if(succ.style.display == 'block'){
-        main_nav_bar.style.filter = 'blur(5px)';
-        invitation_footer.style.filter = 'blur(5px)';
-        setBlur(admin_home_main_container, 5);
-        setBlur(notfound_main_container, 5);
-        setBlur(pass_change_main_container, 5);
-        setBlur(index_container, 5);
-    }
     setTimeout(() => {
         succ.style.display = 'none';
     }, 3000);
