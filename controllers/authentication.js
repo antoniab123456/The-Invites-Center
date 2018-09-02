@@ -20,15 +20,6 @@ let authentication = {
             res.redirect('/');
         }
     },
-    adminAuth: (req, res) => {
-        User.find({}, (err, users) => {
-            if(err){
-                req.flash('error_msg', "Oops, something went wrong");
-                next;
-            }
-            res.render('admin', {users: users});
-        });
-    },
     forgotPassword: (req, res) => {
         let signPassChange = (query) => { 
             User.findOne(query, (err, user) => {
@@ -58,6 +49,7 @@ let authentication = {
             res.redirect('/');
         } else {
             jwt.verify(req.query.token, process.env.PSW_SECRET, (err, decoded) => {
+                if(err) throw err;
                 if(decoded == undefined){
                     req.flash('error_msg', 'The token has expires or is incorrect!');
                     res.redirect('/');
@@ -72,7 +64,7 @@ let authentication = {
                                 res.render('pass_change');
                             }
                         } else {
-                            req.flash('error_msg', 'The token has expires or is incorrect!');
+                            req.flash('error_msg', 'The token has expired or is incorrect!');
                             res.redirect('/');
                         }
                     });

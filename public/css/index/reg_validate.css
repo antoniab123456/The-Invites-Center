@@ -1,0 +1,75 @@
+#email_not_correct_reg,
+#email_taken_reg,
+#username_taken_reg,
+#pass_short_reg,
+#pass_secure_reg,
+#pass_not_equal_reg,
+#pass_equal_reg {
+    display: none;
+    font-size: 15px;
+}
+
+#email_not_correct_reg,
+#email_taken_reg,
+#username_taken_reg,
+#pass_short_reg,
+#pass_not_equal_reg {
+    color: rgb(209, 9, 9);
+}
+
+#pass_secure_reg,
+#pass_equal_reg {
+    color: rgb(7, 145, 41);
+}
+
+#email_not_correct_reg,
+#email_taken_reg {
+    position: absolute;
+    top: -6%;
+}
+
+#email_not_correct_reg {
+    left: 33%;
+}
+
+#email_taken_reg {
+    left: 30%;
+}
+
+#username_taken_reg {
+    position: absolute;
+    top: 32%;
+    left: 53.5%;
+}
+
+#pass_short_reg,
+#pass_secure_reg {
+    position: absolute;
+    top: 32%;
+}
+
+#pass_short_reg {
+    left: 15.5%;
+}
+
+#pass_secure_reg {
+    left: 30%;
+}
+
+#pass_not_equal_reg,
+#pass_equal_reg {
+    position: absolute;
+    top: 50.5%;
+}
+
+#pass_equal_reg {
+    left: 29%;
+}
+
+#pass_not_equal_reg {
+    left: 29%;
+}
+
+#success_reg{
+    display: none;
+}

@@ -8,60 +8,50 @@ const message = require('../config/email_contents');
 let registration = {
     postReg: (req, res) =>{
       User.findOne({email: req.body.email}, (err, existingUser) => {
-            if (err) { return next(err); }
+            if (err) { throw (err); }
     
             const email = req.body.email;
             const name = req.body.name;
             const username = req.body.username;
             const password = req.body.password;
-    
-            //Validation
-            req.checkBody('email', 'Invalid e-mail').isEmail();
-            req.checkBody('password', 'Password should be at least 6 symbols').isLength({min: 6});
-            req.checkBody('passwordConfirm', 'Passwords are not equal').equals(req.body.password);
-            req.checkBody('username', 'Username should be less than 22 symbols').isLength({max: 22});
-    
-            const errors = req.validationErrors();
-    
-            if(errors) {
-                res.render('index', {
-                    errors: errors
-                });
+            
+            if (existingUser) {
+                res.send('email_exists');
             } else {
-                if (existingUser) {
-                    req.flash('error_msg', 'User with this email already exists');
-                    res.redirect('/');
-                } else {
-                    const newUser = new User({
-                        email: email,
-                        name: name,
-                        username: username,
-                        password:  password,
-                        confirmed: false
-                    });
-
-                    bcrypt.genSalt(10, (err, salt) => {
-                        bcrypt.hash(newUser.password, salt, (err, hash) => {
-                            newUser.password = hash;
-
-                            newUser.save((err, user) => {
-                                if (err) throw err;
-
-                                req.flash('success_msg', 'You are registered! Verify your email to Login');
-                                res.redirect('/');
-
-                                jwt.sign({ id: user._id }, process.env.REG_SECRET, { expiresIn: '1h' }, 
-                                (err, token) => {
-                                    if(err) throw err;
-
-                                    mailer.sendEmail(user.email, message.emailVerification(token));
-                                });
-                            });
-
+                User.findOne({username: username}, (err, user) => {
+                    if(user){
+                        res.send('username_exists');
+                    } else {
+                        const newUser = new User({
+                            email: email,
+                            name: name,
+                            username: username,
+                            password:  password,
+                            confirmed: false
                         });
-                    });
-                }
+        
+                        bcrypt.genSalt(10, (err, salt) => {
+                            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                                newUser.password = hash;
+        
+                                newUser.save((err, user) => {
+                                    if (err) throw err;
+        
+                                    jwt.sign({ id: user._id }, process.env.REG_SECRET, { expiresIn: '1h' }, 
+                                    (err, token) => {
+                                        if(err) throw err;
+                                        mailer.sendEmail(user.email, message.emailVerification(token));
+                                        res.send('success');
+                                        console.log(user);
+                                    });
+                                });
+        
+                            });
+                        });
+                    }
+                });
             }
+            
         });
     },
     verifyEmail: (req, res) => {
@@ -71,6 +61,10 @@ let registration = {
         } else {
             jwt.verify(req.query.token, process.env.REG_SECRET, (err, decoded) =>{
                 if(err) throw err;
+                if(!decoded){
+                    req.flash('error_msg', 'The token is expired or incorrect');
+                    res.redirect('/');
+                }
                 User.findOne({_id: decoded.id}, (err, user) => {
                     if(err) throw err;
                     if(!user){
@@ -78,9 +72,10 @@ let registration = {
                         res.redirect('/');
                     } else{
                         user.confirmed = true;
-                        user.save();
-                        req.flash('success_msg', 'Email verified!');
-                        res.redirect('/');
+                        user.save((err, user) => {
+                            req.flash('success_msg', 'Email verified!');
+                            res.redirect('/');
+                        });
                     }
                 });
             });

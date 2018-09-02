@@ -1,0 +1,90 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+    color: #484848;
+    line-height: 1.6;
+}
+
+button:hover,
+input[type=submit] {
+    cursor: pointer;
+}
+
+a::selection,
+p::selection,
+footer::selection,
+button::selection,
+input::selection {
+    background-color: #f5d5e6;
+}
+
+#main_nav_bar {
+    padding: 0px 0 50px 70px;
+    position: absolute;
+    top: 50px;
+    left: 800px;
+    font-size: 18px;
+}
+
+#main_nav_bar  li {
+    float: left;
+    display: inline;
+    padding: 0 40px 0 40px;
+}
+
+#main_nav_bar a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#login_main_button{
+    background-color: #FF69B4;
+    color: #484848;
+    border-radius: 5px;
+    padding: 10px 25px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    margin-left: 35px;
+    position: absolute;
+    top: -10px;
+    transition: background 0.5s ease-in-out;
+}
+
+#login_main_button:hover {
+    background-color: #fb98ca;
+    cursor: pointer;
+}
+
+#logout_button a{
+    background-color:#457fbb;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background 0.5s ease-in-out;
+    position: relative;
+    left: -10px;
+    top: -3px;
+    padding: 10px 20px;
+}
+
+
+ #logout_button a:hover{
+    background-color: #376ba0;
+    cursor: pointer;
+ }
+
+
+#invitation_footer {
+    position: relative;
+    top: 750px;
+    left: 40%;
+    font-size: 19px;
+    color: #606060;
+}
+
+

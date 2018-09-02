@@ -1,0 +1,32 @@
+
+<link rel="stylesheet" href="/css/pass_change/change_pass.css">
+
+<div id="pass_change_main_container">
+    <div id="inner_pass_change">
+        <div id="inner_pass_change_header">Enter your new password</div>
+        <div id='pass_change_form'>
+            <div class="pass_input">
+                <p id='pass_short_err'>Password should be longer than 8 symbols</p>
+                <p id='no_credent_err'>No password provided</p>
+                <p id='pass_success'>Password is secure <span id="secure_index"></span></p>
+                <input id='pass_changed_input' type="password" name="password" placeholder='New Password...' required />
+            </div>
+            <div class="pass_input">
+                <p id='pass_not_equal_err'>Passwords are not equal!</p>
+                <p id='pass_equal'>Passwords are equal</p>
+                <input id='pass_confirm_changed_input' type="password" name="pass_confirmed" placeholder='Confirm Password' required />
+            </div>
+            <button id='submit_pass_change_btn' type='submit'>Submit</button>
+        </div>
+    </div>
+</div>
+
+<div class="success_modal" id="pass_changed">
+    <div class="success_message">
+        <img src="/images/success.png">
+        <div class="success_msg_text"><p>Password was successfully changed!</p></div>
+    </div>
+</div>
+
+
+<script src="/js/pass_change/change_pass.js"></script>

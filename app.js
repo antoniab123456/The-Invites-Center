@@ -1,30 +1,80 @@
 const express = require('express');
-const path = require('path');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const exphbs = require('express-handlebars');
-const expressValidator = require('express-validator');
-const flash = require('connect-flash');
-const session = require('express-session');
-const passport = require('passport');
-const mongoose = require('mongoose');
-const favicon = require('serve-favicon');
+    http = require('http'),
+    WebSocketServer = require('websocket').server,
+    path = require('path'),
+    cookieParser = require('cookie-parser'),
+    bodyParser = require('body-parser'),
+    exphbs = require('express-handlebars'),
+    expressValidator = require('express-validator'),
+    flash = require('connect-flash'),
+    session = require('express-session'),
+    passport = require('passport'),
+    mongoose = require('mongoose'),
+    favicon = require('serve-favicon'),
+    env = require('dotenv/config'),
+    Grid = require('gridfs-stream');
 
+/* Server setup */
 const app = express();
 
-let port = process.env.PORT || 3000;
+const server = http.createServer(app);
 
-app.listen(port, function(){
-    console.log(`Server started on port port ${port} on ${new Date}`);
+/* Websocket server setup */
+const wss = new WebSocketServer({httpServer: server});
+
+wss.on('request', (req) => {
+    console.log(`The user connected ${req.origin}`);
+    let conn = req.accept(null, req.origin);
+    conn.on('message', (message) => {
+        //reecive json data 
+        console.log(message.utf8Data);
+        // sending back json data
+        conn.sendUTF(JSON.stringify('test'));
+        if(message.type === 'utf-8'){
+        }
+        conn.on('close', (conn) => {
+            console.log(`disconnected`)
+        });
+    });
 });
 
+
+server.listen(4000, function(){
+    console.log(`Server started on port port 4000 on ${new Date}`);
+});
+
+
+
+/* Mongoose setup */
 mongoose.connect('mongodb://localhost:27017/loginapp');
+
+/* Gfs setup */
+new Promise((resolve, reject) => {
+    mongoose.connection.once('open', () => {
+        let gfs = Grid(mongoose.connection.db, mongoose.mongo);
+        gfs.collection('uploads');
+        resolve(gfs);
+    });
+})
+.then((gfs) => {
+    module.exports.getFile = (q, cb) =>{
+        gfs.files.findOne(q, cb);
+    }
+    module.exports.removeFile = (q, cb) =>{
+        gfs.files.remove(q, cb);
+    }
+    module.exports.readStream = (file, res) =>{
+        let readstream = gfs.createReadStream(file);
+        readstream.pipe(res);
+    }
+});
+
 mongoose.set('debug', true);
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
+app.engine('hbs', exphbs({defaultLayout:'layout', extname: '.hbs'}));
+app.set('view engine', 'hbs');
 
 //Cookie Parser
 app.use(cookieParser());
@@ -100,4 +150,3 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Credentials', 'true');
     res.end();
 });
-

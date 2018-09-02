@@ -1,0 +1,52 @@
+
+<link rel="stylesheet" href="/css/profile_settings/profile.css">
+<link rel="stylesheet" href="/css/profile_settings/delete.css">
+
+<div id="main_profile_settings_container">
+    <ul id="profile_nav_bar">
+        {{#if profile}}
+        {{!-- settings_active --}}
+            <li  class='{{profile}}' id='nav_profile'> <a href="/users/profile">Profile</a> </li>
+        {{else}}
+            <li id='nav_profile'> <a href="/users/profile">Profile</a> </li>
+        {{/if}}
+        {{#if settings}}
+        {{!-- profile_active --}}
+            <li id='nav_settings' class={{settings}}> <a href="/users/settings">Settings</a> </li>
+        {{else}}
+            <li id='nav_settings'> <a href="/users/settings">Settings</a> </li>
+        {{/if}}
+    </ul>
+    <div id="background_profile_settings"></div>
+    {{#if profile}}
+        <div id="upload_profile_image_form">
+            <form method="post" action="/users/profile/picture" enctype="multipart/form-data">
+                {{!-- Link to Delete Image --}}
+                <input type="file" name="file" id="file" class="empty_profile_image" />
+                {{#if user.profile_img}}
+                    <label for="file" id='file_label' style="background:url('/users/image?image={{user.profile_img}}') no-repeat center; background-size: cover;"> </label>
+                    <a id='bin_inside' href='/users/image/delete?image={{user.profile_img}}'>&#10007;</a>
+                {{else}}
+                    <label for="file" class="no_foto_chosen" id='file_label'> </label>
+                {{/if}}
+                <div id="not_an_img_err"> The file you uploaded is not an image! </div>
+                <button id="profile_pic_submit" type='submit'> Change picture </button>
+            </form>
+        </div>
+    {{/if}}
+</div>
+
+
+{{!-- Delete note modal --}}
+<div id="delete_inside_note_modal">
+    <div id="delete_note_wrap">
+        <p id="delete_modal_header">Delete the image?</p>
+        <div class="delete_modal_buttons">
+            <a class="delete_btn">Delete</a>
+            <a class="cancel_btn">Cancel</a>
+        </div>
+    </div>
+</div>
+
+<script src="/js/profile_settings/profile.js"></script>
+<script src="/js/profile_settings/delete.js"></script>

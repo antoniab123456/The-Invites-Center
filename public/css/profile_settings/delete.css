@@ -1,0 +1,80 @@
+
+#bin_inside {
+    color: #fd4646;
+    font-size: 25px;
+    text-decoration: none;
+    position: absolute;
+    top: -400%;
+    left: 88%;
+}
+
+#bin_inside:hover {
+    color: #f81010;
+    cursor: pointer;
+}
+
+#delete_inside_note_modal{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    overflow: auto;
+}
+
+#delete_note_wrap {
+    background-color: #f5f5f5;
+    margin: 20% auto;
+    height: 110px;
+    width: 25%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+    animation-name: open_modal;
+    animation-duration: 1s;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+
+#delete_note_wrap a {
+    padding: 7px 30px;
+    border-radius: 3px;
+    margin-right: 20px;
+    font-family: sans-serif;
+    font-size: 16px;
+    outline: none;
+    text-decoration: none;
+}
+
+#delete_modal_header {
+    margin: 15px 0 0 100px;
+    font-size: 20px;
+}
+
+.cancel_btn,
+.delete_btn {
+    border: 1px solid #b5b7b8;
+}
+
+.cancel_btn:hover,
+.delete_btn:hover {
+    cursor: pointer;
+    background-color: #a7a8a8;
+    color: white;
+}
+
+.delete_btn:hover{
+    cursor: pointer;
+    background-color: #af2121;
+    color: white;
+}
+
+.delete_modal_buttons {
+    margin: 16px 0 0 15%;
+}
+
+

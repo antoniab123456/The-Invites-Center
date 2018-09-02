@@ -1,0 +1,120 @@
+
+/* Profile nav bar */
+#profile_nav_bar{
+    position: absolute;
+    top: 19%;
+    left: 7%;
+    width: 5%;
+}
+
+#profile_nav_bar li {
+    width: 100%;
+    margin: 0 0 20px 10px;
+    border-bottom: 0.5px solid rgb(212, 211, 211);
+    border-radius: 3px;
+    list-style: none;
+    padding: 10px 20px 10px 30px;
+}
+
+.settings_active a,
+.profile_active a{
+    background-color: #457fbb;
+    color: white !important;
+}
+
+.settings_active,
+.profile_active{
+    background-color: #457fbb;
+    border-radius: 5px !important;
+}
+
+/* Profile nav bar */
+#profile_nav_bar a{
+    color: #376ba0;
+    text-decoration: none;
+    font-family: 'Francois One', sans-serif;
+    letter-spacing: 0.4px;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+/* Main background */
+#background_profile_settings{
+    background: url('/images/user_profile.png') no-repeat;
+    background-size: 1200px;
+    opacity: 0.5;
+    padding-left: 100%;
+    width: 100%;
+    height: 900px;
+    position: relative;
+    top: -90px;
+    left: 400px;
+}
+
+/* Upload form styles */
+#upload_profile_image_form{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+}
+
+#profile_pic_submit{
+    display: none; 
+    font-family:sans-serif;
+    line-height: 1.6em;
+    background-color:#457fbb;
+    color: #fff;
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 550%;
+    left: 12.5%;
+}
+
+#profile_pic_submit:hover{
+    background-color: #376ba0;
+    cursor: pointer;
+}
+
+.empty_profile_image{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;  
+}
+
+#file_label{
+    border-radius: 10px;
+    outline: none;
+    padding: 100px 100px;
+    border: 0.3px solid #B8B8B8;
+    position: relative;
+}
+
+.no_foto_chosen{
+    opacity: 0.4;
+    background: url('/images/no-avatar.png') no-repeat center; 
+    background-size: cover;
+}
+
+#file_label:hover{
+    cursor: pointer;
+}
+
+.no_foto_chosen:hover{
+    opacity: 0.9;
+}
+
+#not_an_img_err{
+    display: none; 
+    position: absolute;
+    top: 200px;
+    font-size: 14px;
+    color: rgb(236, 47, 47);
+}
+

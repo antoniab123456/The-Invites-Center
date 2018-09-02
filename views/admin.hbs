@@ -1,0 +1,82 @@
+
+<link rel="stylesheet" href="/css/admin/home.css">
+<link rel="stylesheet" href="/css/admin/admin.css">
+<link rel="stylesheet" href="/css/admin/gen_invite.css">
+<link rel="stylesheet" href="/css/admin/chat.css">
+
+<div id="admin_home_main_container">
+    {{!-- The User Settings Bar--}}
+    {{#if user}}
+    {{!-- The blue user model --}}
+    {{#if user.profile_img}}
+        <div id="profile_icon_picture" style="background:url('/users/image?image={{user.profile_img}}') no-repeat center; background-size: cover;"></div>
+    {{else}}
+        <div id="profile_icon"></div>
+    {{/if}}
+    <div id="profile_settings_modal">
+        <div id="inner_profile_modal">
+            <div>
+                <ul>
+                    <li id="profile_settings_username">{{user.username}}</li>
+                    <li id='profile_model_profile'> <a href="/users/profile">Profile</a> </li>
+                    <li id='profile_model_settings'> <a href="/users/settings">Settings</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+    
+    <div id="home_admin_container">
+        {{#if users}}
+            <div id="all_users_section">
+                <div id="inner_users_section">
+                    <div id="all_user_hat">
+                        <p>Users</p>
+                    </div>
+                    <ul id="all_users_ul">
+                        {{#each users}}
+                            <div class="eachuser">
+                                <li><a class='username_link_chat' href='/users/conversation?receiver={{_id}}'>{{username}}</a></li>
+                                {{#if profile_img}}
+                                    <div id="profile_avatar_each" style="background:url('/users/image?image={{profile_img}}') no-repeat center; background-size: cover;"></div>
+                                {{else}}
+                                    <img src="/images/profile.png">
+                                {{/if}}
+                            </div>
+                        {{/each}}
+                    </ul>
+                    <div>
+                        <button id="invite_users_btn">Invite</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text_area_user">
+                {{!-- <div class="chat_main_div">
+                    <div class="chat_div_hat"> </div>
+                    <div class="all_chats_container"></div>
+                    <textarea class="textarea_chat"></textarea>
+                </div> --}}
+            </div>
+        {{/if}} 
+    </div>
+</div>
+
+{{!-- The invitation link gen modal --}}
+<div id="gen_link_model">
+    <div id="inner_gen_link">
+        <span id="get_link_close">&times;</span>
+        <p id="gen_link_header">Click on the button to generate the invitation link</p>
+        <div id="gen_link_form">
+            <input id="link_gen_input" type="text" id="links" value="" readonly>
+            <div id="copy_sign"><p>copy</p></div>
+        </div>
+        <div>
+            <button id="generate_link_btn">Generate Link</button>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/admin/gen_invite.js"></script>
+<script src="/js/admin/socket.js"></script>
+<script src="/js/admin/chat.js"></script>
