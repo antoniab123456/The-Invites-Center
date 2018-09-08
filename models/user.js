@@ -30,6 +30,10 @@ const UserSchema = new Schema({
     conversation: [{
         type: Schema.Types.ObjectId,
         ref: 'Conversation'
+    }],
+    openedConvos: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Convesation'
     }]
 });
 

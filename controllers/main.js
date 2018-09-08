@@ -24,6 +24,12 @@ let main = {
             res.render('admin', {users: all_users});
         });
     },
+    getUser: (req, res) => {
+        res.send({user: req.user._id});
+    },
+    Test: (req, res) =>{
+        res.end('test');
+    },
     notFound: (req, res) => {
         res.render('notfound');
     }

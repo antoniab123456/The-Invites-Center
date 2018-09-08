@@ -4,21 +4,15 @@
     "description": "AUth system",
     "main": "app.js",
     "dependencies": {
-        "base64url": "^3.0.0",
-        "bluebird": "^3.5.1",
-        "db": "^1.0.7",
         "gridfs-stream": "^1.1.1",
-        "http": "0.0.0",
         "jsonwebtoken": "^8.2.1",
-        "morgan": "^1.9.0",
         "multer": "^1.3.1",
         "multer-gridfs-storage": "^3.0.1",
         "nodemailer": "^4.6.4",
         "nodemon": "^1.17.4",
         "npm": "^5.8.0",
-        "passport-jwt": "^4.0.0",
         "serve-favicon": "^2.5.0",
-        "socket.io": "^2.1.1",
+        "uuid": "^3.3.2",
         "websocket": "^1.0.26"
     },
     "devDependencies": {
@@ -29,13 +23,10 @@
         "dotenv": "^5.0.1",
         "express": "^4.16.3",
         "express-handlebars": "*",
-        "express-messages": "*",
         "express-session": "*",
-        "express-validator": "*",
         "mongodb": "*",
         "mongoose": "*",
         "passport": "*",
-        "passport-http": "*",
         "passport-local": "*"
     },
     "scripts": {

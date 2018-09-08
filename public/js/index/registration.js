@@ -185,3 +185,5 @@ main_reg_btn.onclick = (e) =>{
     }
     e.preventDefault();
 } 
+
+

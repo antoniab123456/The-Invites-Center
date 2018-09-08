@@ -60,24 +60,24 @@ let registration = {
             res.redirect('/');
         } else {
             jwt.verify(req.query.token, process.env.REG_SECRET, (err, decoded) =>{
-                if(err) throw err;
                 if(!decoded){
                     req.flash('error_msg', 'The token is expired or incorrect');
                     res.redirect('/');
-                }
-                User.findOne({_id: decoded.id}, (err, user) => {
-                    if(err) throw err;
-                    if(!user){
-                        req.flash('error_msg', 'Opps something went wrong');
-                        res.redirect('/');
-                    } else{
-                        user.confirmed = true;
-                        user.save((err, user) => {
-                            req.flash('success_msg', 'Email verified!');
+                } else {
+                    User.findOne({_id: decoded.id}, (err, user) => {
+                        if(err) throw err;
+                        if(!user){
+                            req.flash('error_msg', 'Opps something went wrong');
                             res.redirect('/');
-                        });
-                    }
-                });
+                        } else{
+                            user.confirmed = true;
+                            user.save((err, user) => {
+                                req.flash('success_msg', 'Email verified!');
+                                res.redirect('/');
+                            });
+                        }
+                    });
+                }
             });
         }
     }

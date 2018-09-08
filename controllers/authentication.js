@@ -60,7 +60,7 @@ let authentication = {
                             if(!user){
                                 req.flash('error_msg', 'Opps, something went wrong');
                                 res.redirect('/');
-                            } else{
+                            } else {
                                 res.render('pass_change');
                             }
                         } else {
@@ -76,6 +76,8 @@ let authentication = {
         jwt.verify(req.body.token, process.env.PSW_SECRET, (err, decoded) => {
             if(err) throw err;
             User.findOne({_id: decoded.id}, (err, user) => {
+                console.log(user);
+                console.log(req.body.pass);
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(req.body.pass, salt, (err, hash) => {
                         if(err) throw err;

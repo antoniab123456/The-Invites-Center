@@ -6,24 +6,23 @@ const ChatSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Conversation'
     },
-    sender: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    receiver: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
     content: String,
     time: {
         hours: String,
         mins: String,
-        secs: String,
-        day: String, 
+        date: String, 
         month: String,
         year: String
     }, 
-    files: Array
+    files: Array,
+    createdBy: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    },
+    createdFor: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+    }
 });
 
 module.exports = mongoose.model('Chat', ChatSchema);

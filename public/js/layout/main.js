@@ -22,6 +22,7 @@ let openLoginModal = () => {
     setBlur(notfound_main_container, 5);
     setBlur(pass_change_main_container, 5);
     setBlur(index_container, 5);
+    
 }
 
 if(login_main_button){

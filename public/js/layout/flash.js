@@ -46,7 +46,9 @@ if(err_modal !== null || success_modal !== null){
         }
         if(e.target == profile_settings_modal){
             profile_settings_modal.style.display = 'none';
-            profile_icon.style.background = "url('/images/profile_bw.png') no-repeat";
+            if(profile_icon){
+                profile_icon.style.background = "url('/images/profile_bw.png') no-repeat";
+            }
         }
     }
 }
