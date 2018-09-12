@@ -28,12 +28,21 @@ const wss = new WebSocketServer({
     autoAcceptConnections: false
 });
 
+const webpack = require('webpack');
+const webpackDevMiddleware = require('webpack-dev-middleware');
+const webpackConfig = require("./webpack.config");
+
+app.use(webpackDevMiddleware(webpack(webpackConfig)));
+
+
+
 /* Mongoose setup */
 mongoose.connect('mongodb://localhost:27017/loginapp');
 
 /* Init all client connections */
 let clients = [];
 let Chat = require('./models/chat');
+let User = require('./models/user');
 
 /* On request from the client  */
 wss.on('request', (req) => {
@@ -51,12 +60,21 @@ wss.on('request', (req) => {
     /* Send the socket id to the client  */
     conn.sendUTF(JSON.stringify({init_socket: socket.socket_id}));
 
+    
     conn.on('message', (message) => {
         if(message.type == 'utf8'){
             let data = JSON.parse(message.utf8Data)
         /* Receive the user id sent from the client, and add it to the client obj */
-            if(data.socket_user_id){
-                socket.socket_user_id = data.socket_user_id;
+            if(data.socket){
+                socket.socket_user_id = data.socket.socket_user_id;
+
+                /* Send the online status to all other clients but the client itself*/
+                clients.forEach(client => {
+                    if(client.socket_id !== socket.socket_id){
+                        client.conn.sendUTF(JSON.stringify({online_socket: socket.socket_user_id}));
+                    } 
+                })
+            
             } else{ 
                 /* Receive the messages a client sends and write to the db */
                 let msg = JSON.parse(message.utf8Data);
@@ -70,7 +88,7 @@ wss.on('request', (req) => {
                         month: msg.month,
                         year: msg.year
                     },
-                    createdBy: msg.createdBy,
+                    createdBy: msg.sender,
                     createdFor: msg.receiver
                 });
 
@@ -81,7 +99,7 @@ wss.on('request', (req) => {
                         if(client.socket_user_id == msg.receiver){
                             client.conn.sendUTF(JSON.stringify({chat: chat, who: 'receiver'}));
                         } else {
-                            if(client.socket_user_id == msg.sender.user_id){
+                            if(client.socket_user_id == msg.sender){
                                 client.conn.sendUTF(JSON.stringify({chat: chat, who: 'sender'}));
                             }
                         }
@@ -94,7 +112,20 @@ wss.on('request', (req) => {
     /* On connection close, delete the client from clients */
     conn.on('close', () => {
         console.log(`disconnected`)
-        clients.splice(socket, 1);
+       
+        User.findById(socket.socket_user_id, (err, user) => {
+            if(err) throw err;
+            user.set({status: 'offline'});
+            user.save((err, saved) => {
+                if(err) throw err;
+                clients.forEach((client) => {
+                    client.conn.sendUTF(JSON.stringify({socket_disconnected: socket.socket_user_id}));
+                });
+        
+                clients.splice(socket, 1);
+            })
+        })
+
     });
 });
 

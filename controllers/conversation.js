@@ -30,7 +30,8 @@ let conversation = {
                                         convo: conver,
                                         createdBy: req.user._id,
                                         username: user.username,
-                                        profile_img: user.profile_img
+                                        profile_img: user.profile_img,
+                                        status: user.status
                                     }
                                     res.send(receiver_obj);
                                 }
@@ -46,7 +47,8 @@ let conversation = {
                                     convo: conv,
                                     createdBy: req.user._id,
                                     username: user.username,
-                                    profile_img: user.profile_img
+                                    profile_img: user.profile_img,
+                                    status: user.status
                                 }
                                 res.send(receiver_obj);
                             }
@@ -63,7 +65,8 @@ let conversation = {
                             convo: convo,
                             createdBy: req.user._id,
                             username: user.username,
-                            profile_img: user.profile_img
+                            profile_img: user.profile_img,   
+                            status: user.status
                         }
                         res.send(receiver_obj);
                     }

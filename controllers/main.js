@@ -8,23 +8,32 @@ let main = {
         res.render('invitation');
     },
     getHome: (req, res) => {
-        res.render('admin');
+        res.render('home');
     },
-    renderUsers: (req, res) => {
-        User.find({}, (err, users) => {
-            if(err){ req.flash('error_msg', "Oops, something went wrong");}
-            /* Show all the users but the current one */
-            let all_users = [];
-            users.forEach((user)=>{
-                if(user.email !== req.user.email){
-                    all_users.push(user);
-                }
-            });
+    getUsers: (req, res) => {
+        if(req.isAuthenticated()){
+            User.find({}).sort({timestamp: 1}).exec((err, users) => {
+                /* Show all the users but the current one */
+               let all_users = [];
+               users.forEach((user)=>{
+                   if(user.email !== req.user.email){
+                        user_obj = {
+                            username: user.username, 
+                            profile_img: user.profile_img, 
+                            _id: user._id,
+                            status: user.status
+                        }
+                       all_users.push(user_obj);
+                   }
+               });
+   
+               res.send(all_users);
+           });
+        }
 
-            res.render('admin', {users: all_users});
-        });
     },
     getUser: (req, res) => {
+        console.log(req.user._id);
         res.send({user: req.user._id});
     },
     Test: (req, res) =>{

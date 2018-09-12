@@ -25,6 +25,7 @@ let registration = {
                         const newUser = new User({
                             email: email,
                             name: name,
+                            timestamps: Date.now(),
                             username: username,
                             password:  password,
                             confirmed: false

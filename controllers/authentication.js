@@ -8,9 +8,19 @@ const jwt = require('jsonwebtoken');
 
 let authentication = {
     getLogout: (req, res) => {
-        req.logout();
-        req.flash('success_msg', 'You are logged out');
-        res.redirect('/');
+        if(req.isAuthenticated()){
+            User.findById(req.user._id, (err, user) => {
+                if(err) throw err;
+                user.set({status: 'offline'});
+                user.save((err, saved)=> {
+                    if(err) throw err;
+                    console.log(saved);
+                    req.logout();
+                    req.flash('success_msg', 'You are logged out');
+                    res.redirect('/');
+                });
+            })
+        }
     },
     ensureAuthenticated: (req, res, next) => {
         if(req.isAuthenticated()){

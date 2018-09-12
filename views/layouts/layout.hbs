@@ -15,16 +15,16 @@
         <nav id='main_nav_bar'>
             <ul>
                 {{!-- For all users --}}
-                <li><a href="/users/home">Home</a></li>
+                <li id="home_button"><a href="/users/home">Home</a></li>
 
                 {{!-- For users that logged in --}}
                 {{#if user}}
-                    <li><a href="/users/admin"> Admin panel</a></li>
                     <li id="logout_button"><a href="/users/logout"> Logout</a></li>
 
                 {{!-- For users that didn't login --}}
                 {{else}}
-                    <li><a href="/">Register</a></li>
+                    {{!-- For all users --}}
+                    <li id="register_link_nav"><a href="/">Register</a></li>
                     <button id="login_main_button">Login</button>
                 {{/if}}
             </ul>
@@ -104,11 +104,11 @@
     <footer id="invitation_footer"> &copy; 2018 The Invitations Center</footer>
 </body>
 
-{{!-- <script src="/js/config.js"></script> --}}
-
+<script src="/bundle.js"></script>
+{{!-- 
 <script src="/js/layout/main.js"></script>
 <script src="/js/layout/flash.js"></script>
 <script src="/js/layout/forgot_pass.js"></script>
-<script src="/js/layout/home_page.js"></script>
+<script src="/js/layout/home_page.js"></script> --}}
 
 </html>

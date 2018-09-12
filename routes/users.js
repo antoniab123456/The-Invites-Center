@@ -15,13 +15,13 @@ router.get('/test/', main.Test);
 /*Get requests  */
 router.get('/home', main.getHome);
 router.get('/logout', authentication.getLogout);
-router.get('/admin', authentication.ensureAuthenticated, main.renderUsers);
 router.get('/verify', registration.verifyEmail);
 router.get('/change_pass', authentication.changePassword);
 router.get('/profile', authentication.ensureAuthenticated, settings.getProfile);
 router.get('/settings', authentication.ensureAuthenticated, settings.getSettings);
 router.get('/image/', settings.getImage);
 router.get('/find_user', main.getUser);
+router.get('/get_users', main.getUsers);
 router.get('/*', main.notFound);
 
 /* Post requests  */
@@ -29,7 +29,7 @@ router.post('/register', registration.postReg);
 router.post('/login', login.postLogin);
 router.post('/forgot', authentication.forgotPassword);
 router.post('/change_pass', authentication.postPassChange);
-router.post('/profile/picture', upload.single('file'), settings.postProfilePicture);
+router.post('/profile/picture', authentication.ensureAuthenticated, upload.single('file'), settings.postProfilePicture);
 router.post('/conversation/', conversation.postConversation);
 router.post('/chats/history', conversation.chatHistory);
 

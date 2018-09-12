@@ -1,7 +1,6 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const User = require('../models/user');
-const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 
@@ -21,7 +20,11 @@ passport.use(new LocalStrategy(
                 ((err, res) => {
                     if (err) throw err;
                     if (res) {
-                        return done(null, user);
+                        user.set({status: 'online'});
+                        user.save((err, saved) => {
+                            if(err) throw err;
+                            return done(null, saved);
+                        })
                     } else  {
                         return done(null, false, { message: 'Incorrect Credentials' });
                     }

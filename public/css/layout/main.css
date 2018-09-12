@@ -41,6 +41,18 @@ input::selection {
     color: inherit;
 }
 
+
+#register_link_nav{
+    position: relative;
+    left: -120px;
+ }
+
+#home_button{
+    position: relative;
+    left: 140px;
+}
+
+
 #login_main_button{
     background-color: #FF69B4;
     color: #484848;
@@ -49,9 +61,9 @@ input::selection {
     border: none;
     outline: none;
     font-size: 18px;
-    margin-left: 35px;
-    position: absolute;
+    position: relative;
     top: -10px;
+    left: 30px;
     transition: background 0.5s ease-in-out;
 }
 
@@ -67,7 +79,7 @@ input::selection {
     font-size: 18px;
     transition: background 0.5s ease-in-out;
     position: relative;
-    left: -20px;
+    left: 140px;
     top: -3px;
     padding: 10px 20px;
 }
@@ -80,8 +92,8 @@ input::selection {
 
 
 #invitation_footer {
-    position: relative;
-    top: 680px;
+    position: absolute;
+    top: 750px;
     left: 40%;
     font-size: 19px;
     color: #606060;

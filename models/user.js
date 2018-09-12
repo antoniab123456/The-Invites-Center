@@ -34,7 +34,10 @@ const UserSchema = new Schema({
     openedConvos: [{
         type: Schema.Types.ObjectId,
         ref: 'Convesation'
-    }]
+    }], 
+    status: {
+        type: String
+    }
 });
 
 module.exports = mongoose.model('User', UserSchema);
