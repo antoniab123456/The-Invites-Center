@@ -83,4 +83,4 @@ let forgot_pass = () => {
     } 
 }
 
-module.exports = forgot_pass();
+module.exports = forgot_pass;

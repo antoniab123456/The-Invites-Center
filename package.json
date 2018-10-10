@@ -24,14 +24,15 @@
         "passport-local": "*",
         "serve-favicon": "^2.5.0",
         "uuid": "^3.3.2",
-        "websocket": "^1.0.26"
+        "webpack": "^4.20.2",
+        "websocket": "^1.0.26",
+        "yarn": "^1.9.4"
     },
     "devDependencies": {
         "dotenv": "^5.0.1",
         "webpack-dev-middleware": "^3.3.0"
     },
-    "scripts": {
-    },
+    "scripts": {},
     "author": "Antonia",
     "license": "ISC"
 }

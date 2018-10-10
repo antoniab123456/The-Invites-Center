@@ -67,4 +67,4 @@ let flash = () => {
 
 }
 
-module.exports = flash();
+module.exports = flash;

@@ -7,7 +7,10 @@ let gen_invite = () => {
         get_link_close = document.querySelector('#get_link_close');
 
         if(invite_users_btn){
+            let sniffy = new Dog('sniffy'); 
+
             invite_users_btn.onclick = () =>{
+                sniffy.sayName();
                 gen_link_model.style.display = 'block';
                 home_main_container.style.filter = 'blur(5px)'
                 main_nav_bar.style.filter = 'blur(5px)';
@@ -24,5 +27,5 @@ let gen_invite = () => {
 }
     
 
-module.exports = gen_invite();
+module.exports = gen_invite;
 

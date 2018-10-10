@@ -22,5 +22,5 @@ let home_page = () => {
     
 }
 
-module.exports = home_page();
+module.exports = home_page;
 

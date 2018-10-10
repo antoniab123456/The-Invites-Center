@@ -45,4 +45,4 @@ let users_load = () => {
     
 }
 
-module.exports = users_load();
+module.exports = users_load;

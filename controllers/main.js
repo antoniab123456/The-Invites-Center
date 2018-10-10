@@ -33,11 +33,10 @@ let main = {
 
     },
     getUser: (req, res) => {
-        console.log(req.user._id);
         res.send({user: req.user._id});
     },
     Test: (req, res) =>{
-        res.end('test');
+       res.end('test');       
     },
     notFound: (req, res) => {
         res.render('notfound');

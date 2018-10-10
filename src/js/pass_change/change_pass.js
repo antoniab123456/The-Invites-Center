@@ -103,4 +103,4 @@ let change_pass = () => {
     }
 }
 
-module.exports = change_pass();
+module.exports = change_pass;

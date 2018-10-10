@@ -126,4 +126,4 @@ let chat = () => {
 }
 
 
-module.exports = chat();
+module.exports = chat;

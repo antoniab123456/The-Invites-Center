@@ -22,7 +22,7 @@ let emoji = () => {
     
 }
 
-module.exports = emoji();
+module.exports = emoji;
 
 
 

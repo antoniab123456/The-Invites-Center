@@ -27,4 +27,4 @@ let profile = () => {
     }
 }
 
-module.exports = profile();
+module.exports = profile;

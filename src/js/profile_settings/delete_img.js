@@ -36,4 +36,4 @@ let delete_img = () => {
 }
 
 
-module.exports = delete_img();
+module.exports = delete_img;

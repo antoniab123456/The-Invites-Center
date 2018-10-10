@@ -1,4 +1,5 @@
 let registration = ( ) => {
+
     let reg_form = document.querySelector('.reg_form');
 
     if(reg_form) {
@@ -193,4 +194,4 @@ let registration = ( ) => {
     }
 }
 
-module.exports = registration();
+module.exports = registration;
