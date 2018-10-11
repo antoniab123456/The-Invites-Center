@@ -14,7 +14,8 @@ const express = require('express'),
     favicon = require('serve-favicon'),
     env = require('dotenv/config'),
     Grid = require('gridfs-stream'),
-    uuidv4 = require('uuid/v4');
+    uuidv4 = require('uuid/v4'),
+    webpack = require('webpack');
 
 
 /* Server setup */
@@ -28,7 +29,6 @@ const wss = new WebSocketServer({
     autoAcceptConnections: false
 });
 
-const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackConfig = require("./webpack.config");
 
